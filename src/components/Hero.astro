@@ -1,0 +1,213 @@
+---
+---
+
+<section id="home" class="relative h-screen flex items-center overflow-hidden noise" style="isolation: isolate;">
+  <!-- Video Background (Mobile: Full Background, Desktop: Left Half) -->
+  <div class="absolute inset-0 lg:w-1/2 lg:left-0 overflow-hidden" style="max-height: 100vh;">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="absolute inset-0 w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-[3000ms]"
+    >
+      <source src="/assets/videos/mdgh intro vid.mp4" type="video/mp4" />
+    </video>
+    <!-- Mobile: No overlay (text has shadow), Desktop: Gradient to right -->
+    <div class="absolute inset-0 bg-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/90"></div>
+
+    <!-- Floating Logo -->
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hero-logo opacity-30 lg:opacity-100">
+      <img
+        src="/assets/images/logos/mdgh main logo mini.png"
+        alt="MDGH"
+        class="w-32 h-32 lg:w-48 lg:h-48 opacity-20 animate-pulse"
+      />
+    </div>
+  </div>
+
+  <!-- Content (Mobile: On top of video with text shadow, Desktop: Right Half) -->
+  <div class="relative w-full lg:w-1/2 lg:ml-auto flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-20 lg:bg-black z-10">
+    <div class="hero-content max-w-2xl w-full space-y-6 sm:space-y-8 md:space-y-12">
+        <!-- Subtitle -->
+        <div class="hero-tag overflow-hidden">
+          <p class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold">Est. 2025</p>
+        </div>
+
+        <!-- Main Title with Decorative Elements -->
+        <div class="relative">
+          <!-- Decorative Line Top -->
+          <div class="hero-line-top absolute -top-8 left-0 w-20 h-0.5 bg-gradient-to-r from-[#F8B92F] to-transparent"></div>
+
+          <div class="space-y-1 overflow-hidden">
+            <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-none">
+              <span class="block text-shine">MISS</span>
+              <span class="block text-white">DIASPORA</span>
+              <span class="block bg-gradient-to-r from-[#F8B92F] via-[#FFD700] to-[#F8B92F] bg-clip-text text-transparent">GHANA</span>
+            </h1>
+          </div>
+
+          <!-- Decorative Line Bottom -->
+          <div class="hero-line-bottom absolute -bottom-8 right-0 w-20 h-0.5 bg-gradient-to-l from-[#F8B92F] to-transparent"></div>
+        </div>
+
+        <!-- Description with prettier styling -->
+        <div class="hero-desc overflow-hidden relative">
+          <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 lg:text-white/70 font-light leading-relaxed relative z-10">
+            <span class="inline-block hero-word">Celebrating</span>{' '}
+            <span class="inline-block hero-word text-[#F8B92F] font-semibold">Beauty</span>,{' '}
+            <span class="inline-block hero-word text-[#F8B92F] font-semibold">Culture</span>{' '}
+            <span class="inline-block hero-word">&</span>{' '}
+            <span class="inline-block hero-word text-[#F8B92F] font-semibold">Impact</span>{' '}
+            <span class="inline-block hero-word">across</span>{' '}
+            <span class="inline-block hero-word">the</span>{' '}
+            <span class="inline-block hero-word">Diaspora</span>
+          </p>
+          <!-- Subtle glow effect -->
+          <div class="absolute inset-0 bg-[#F8B92F]/5 blur-3xl -z-10"></div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6">
+          <a
+            href="#about"
+            class="group magnetic relative px-8 md:px-10 py-4 md:py-5 bg-[#F8B92F] text-black font-bold text-base md:text-lg overflow-hidden text-center"
+          >
+            <span class="relative z-10">EXPLORE PAGEANT</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#F8B92F] transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+            <span class="absolute right-4 top-1/2 transform -translate-y-1/2 group-hover:translate-x-2 transition-transform text-xl md:text-2xl">→</span>
+          </a>
+          <a
+            href="#contact"
+            class="magnetic px-8 md:px-10 py-4 md:py-5 border-2 border-white text-white font-bold text-base md:text-lg hover:bg-white hover:text-black transition-all duration-300 text-center"
+          >
+            APPLY NOW
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats grid grid-cols-3 gap-4 md:gap-8 pt-8 md:pt-12 border-t border-white/10">
+          <div>
+            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F8B92F]">12+</div>
+            <div class="text-xs sm:text-sm text-white/60 uppercase tracking-wider mt-1 md:mt-2">Countries</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F8B92F]">50+</div>
+            <div class="text-xs sm:text-sm text-white/60 uppercase tracking-wider mt-1 md:mt-2">Contestants</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F8B92F]">1M+</div>
+            <div class="text-xs sm:text-sm text-white/60 uppercase tracking-wider mt-1 md:mt-2">Reach</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-12 right-12 hidden lg:block">
+    <div class="flex items-center gap-4 rotate-90 origin-center">
+      <span class="text-white/40 text-sm uppercase tracking-widest">Scroll to explore</span>
+      <div class="w-16 h-px bg-white/20"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+
+  // Enhanced entrance animations
+  const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+  tl.from('.hero-tag', {
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    delay: 0.3,
+  })
+  // Decorative line top
+  .from('.hero-line-top', {
+    scaleX: 0,
+    transformOrigin: 'left',
+    duration: 0.8,
+  }, '-=0.5')
+  // Title with 3D rotation
+  .from('.hero-title span', {
+    y: 200,
+    opacity: 0,
+    rotateX: 90,
+    stagger: 0.15,
+    duration: 1,
+  }, '-=0.6')
+  // Decorative line bottom
+  .from('.hero-line-bottom', {
+    scaleX: 0,
+    transformOrigin: 'right',
+    duration: 0.8,
+  }, '-=0.8')
+  // Description words with stagger
+  .from('.hero-word', {
+    y: 20,
+    opacity: 0,
+    stagger: 0.05,
+    duration: 0.6,
+  }, '-=0.5')
+  // Buttons
+  .from('.hero-cta a', {
+    y: 30,
+    opacity: 0,
+    scale: 0.9,
+    stagger: 0.15,
+    duration: 0.8,
+  }, '-=0.3')
+  // Stats
+  .from('.hero-stats > div', {
+    y: 20,
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.6,
+  }, '-=0.3');
+
+  // Continuous floating animation for title
+  gsap.to('.hero-title', {
+    y: -10,
+    duration: 2,
+    ease: 'power1.inOut',
+    yoyo: true,
+    repeat: -1,
+  });
+
+  // Shimmer effect on gold text
+  gsap.to('.text-shine', {
+    backgroundPosition: '200% 0',
+    duration: 3,
+    ease: 'none',
+    repeat: -1,
+  });
+</script>
+
+<style>
+  /* Ensure hero takes full screen */
+  #home {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* On mobile, ensure content doesn't overflow */
+  @media (max-width: 1023px) {
+    #home {
+      min-height: max(100vh, 800px);
+    }
+
+    /* Add strong text shadow on mobile for readability without overlay */
+    .hero-content * {
+      text-shadow: 0 2px 30px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  /* Text effects */
+  .hero-title span {
+    display: block;
+    will-change: transform;
+  }
+</style>

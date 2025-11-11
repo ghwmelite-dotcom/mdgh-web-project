@@ -1,0 +1,117 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Miss Diaspora Ghana - Celebrating Beauty, Culture & Impact" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/assets/images/logos/md fav.png" />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+		<title>{title}</title>
+
+		<style>
+			body {
+				font-family: 'Inter', sans-serif;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				font-family: 'Playfair Display', serif;
+			}
+		</style>
+	</head>
+	<body class="antialiased">
+		<!-- Custom Cursor -->
+		<div class="custom-cursor"></div>
+		<div class="custom-cursor-dot"></div>
+
+		<slot />
+
+		<script>
+			import Lenis from 'lenis';
+			import { gsap } from 'gsap';
+			import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+			gsap.registerPlugin(ScrollTrigger);
+
+			// Smooth scrolling
+			const lenis = new Lenis({
+				duration: 1.2,
+				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+				smoothWheel: true,
+			});
+
+			function raf(time: number) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			}
+
+			requestAnimationFrame(raf);
+
+			// Update ScrollTrigger on Lenis scroll
+			lenis.on('scroll', ScrollTrigger.update);
+
+			// Custom Cursor - Desktop Only
+			if (window.innerWidth >= 1024) {
+				const cursor = document.querySelector('.custom-cursor');
+				const cursorDot = document.querySelector('.custom-cursor-dot');
+
+				let mouseX = 0, mouseY = 0;
+				let cursorX = 0, cursorY = 0;
+				let dotX = 0, dotY = 0;
+
+				document.addEventListener('mousemove', (e) => {
+					mouseX = e.clientX;
+					mouseY = e.clientY;
+				});
+
+				function animateCursor() {
+					// Smooth follow with easing
+					cursorX += (mouseX - cursorX) * 0.1;
+					cursorY += (mouseY - cursorY) * 0.1;
+					dotX += (mouseX - dotX) * 0.3;
+					dotY += (mouseY - dotY) * 0.3;
+
+					if (cursor) {
+						cursor.style.left = cursorX + 'px';
+						cursor.style.top = cursorY + 'px';
+					}
+					if (cursorDot) {
+						cursorDot.style.left = dotX + 'px';
+						cursorDot.style.top = dotY + 'px';
+					}
+
+					requestAnimationFrame(animateCursor);
+				}
+
+				animateCursor();
+
+				// Cursor hover effects
+				const interactiveElements = document.querySelectorAll('a, button, .magnetic');
+				interactiveElements.forEach((el) => {
+					el.addEventListener('mouseenter', () => {
+						cursor?.classList.add('scale-150');
+						cursorDot?.classList.add('scale-0');
+					});
+					el.addEventListener('mouseleave', () => {
+						cursor?.classList.remove('scale-150');
+						cursorDot?.classList.remove('scale-0');
+					});
+				});
+			}
+		</script>
+	</body>
+</html>
