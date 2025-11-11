@@ -5,19 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miss Diaspora Ghana | Celebrating Beauty, Culture & Impact</title>
     <meta name="description" content="Miss Diaspora Ghana empowers young women of African descent to lead, serve, and connect Ghana with its global diaspora.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <img src="../assets/images/logos/mdgh main logo mini.png" alt="MDGH Logo" class="loader-logo">
+            <div class="loader-text">Miss Diaspora Ghana</div>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-content">
                 <div class="logo">
-                    <img src="mdgh main logo mini.png" alt="MDGH - Miss Diaspora Ghana" class="logo-image">
+                    <img src="../assets/images/logos/mdgh main logo mini.png" alt="MDGH - Miss Diaspora Ghana" class="logo-image">
                 </div>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home" class="nav-link">Home</a></li>
@@ -54,7 +65,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-video-container">
             <video autoplay muted loop playsinline class="hero-video">
-                <source src="mdgh intro vid.mp4" type="video/mp4">
+                <source src="../assets/videos/mdgh intro vid.mp4" type="video/mp4">
             </video>
         </div>
         <div class="container">
@@ -83,7 +94,7 @@
             <div class="pillars-grid">
                 <div class="pillar-card">
                     <div class="pillar-icon">
-                        <img src="culture.png" alt="Cultural Identity">
+                        <img src="../assets/images/content/culture.png" alt="Cultural Identity">
                     </div>
                     <div class="pillar-number">01.</div>
                     <h3 class="pillar-title">Cultural Identity</h3>
@@ -91,7 +102,7 @@
                 </div>
                 <div class="pillar-card">
                     <div class="pillar-icon">
-                        <img src="leadership.png" alt="Leadership Training">
+                        <img src="../assets/images/content/leadership.png" alt="Leadership Training">
                     </div>
                     <div class="pillar-number">02.</div>
                     <h3 class="pillar-title">Leadership Training</h3>
@@ -99,7 +110,7 @@
                 </div>
                 <div class="pillar-card">
                     <div class="pillar-icon">
-                        <img src="social impact.png" alt="Social Impact">
+                        <img src="../assets/images/content/social impact.png" alt="Social Impact">
                     </div>
                     <div class="pillar-number">03.</div>
                     <h3 class="pillar-title">Social Impact</h3>
@@ -114,7 +125,7 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <img src="a-medium-shot-of-a-confident-elegant-gha.jpg" alt="Miss Diaspora Ghana - Confident and elegant Ghanaian woman in traditional attire with Ghana flag background">
+                    <img src="../assets/images/content/a-medium-shot-of-a-confident-elegant-gha.jpg" alt="Miss Diaspora Ghana - Confident and elegant Ghanaian woman in traditional attire with Ghana flag background">
                 </div>
                 <div class="about-text">
                     <span class="section-label">About Us</span>
@@ -568,7 +579,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="mdgh main logo mini.png" alt="MDGH - Miss Diaspora Ghana" class="logo-image">
+                    <img src="../assets/images/logos/mdgh main logo mini.png" alt="MDGH - Miss Diaspora Ghana" class="logo-image">
                 </div>
                 <p class="footer-text">© 2025 Miss Diaspora Ghana (MDGH). All rights reserved.<br>An initiative of Nubian Crown Company Limited.</p>
                 <div class="footer-links">
@@ -581,7 +592,56 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget">
+        <button class="chatbot-button" id="chatbotToggle" aria-label="Open Chat">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12C2 13.75 2.52 15.37 3.41 16.72L2.05 21.95L7.28 20.59C8.63 21.48 10.25 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C10.51 20 9.12 19.56 7.94 18.82L7.5 18.56L4.42 19.37L5.23 16.29L4.97 15.85C4.23 14.67 3.79 13.28 3.79 11.79C3.79 7.37 7.37 3.79 11.79 3.79C16.21 3.79 19.79 7.37 19.79 11.79C19.79 16.21 16.21 19.79 11.79 19.79H12ZM16.5 13.75C16.25 13.625 15 13 14.875 12.9375C14.75 12.875 14.625 12.8438 14.5 13.0938C14.375 13.3438 13.9375 13.9375 13.8125 14.0625C13.6875 14.1875 13.5625 14.2188 13.3125 14.0938C13.0625 13.9688 12.25 13.6875 11.2812 12.8438C10.5312 12.1875 10.0312 11.375 9.90625 11.125C9.78125 10.875 9.875 10.75 10 10.625C10.125 10.5 10.25 10.3125 10.375 10.1875C10.5 10.0625 10.5625 9.96875 10.625 9.84375C10.6875 9.71875 10.625 9.59375 10.5625 9.46875C10.5 9.34375 10 8.125 9.875 7.625C9.75 7.125 9.625 7.1875 9.5 7.1875H9.125C9 7.1875 8.78125 7.25 8.59375 7.5C8.40625 7.75 7.75 8.375 7.75 9.59375C7.75 10.8125 8.625 12 8.75 12.125C8.875 12.25 10 14.3438 11.9375 15.375C13.875 16.4062 13.875 16.0625 14.375 16C14.875 15.9375 15.8125 15.375 16 14.75C16.1875 14.125 16.1875 13.5938 16.125 13.5C16.0625 13.4062 15.9375 13.3438 15.6875 13.25L16.5 13.75Z"/>
+            </svg>
+        </button>
+
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-header-info">
+                    <div class="chatbot-avatar">MG</div>
+                    <div class="chatbot-title">
+                        <h3>MDGH Assistant</h3>
+                        <p>Online now</p>
+                    </div>
+                </div>
+                <button class="chatbot-close" id="chatbotClose" aria-label="Close Chat">&times;</button>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chatbot-message bot">
+                    <div class="message-avatar">MG</div>
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            Hello! Welcome to Miss Diaspora Ghana. I'm here to help you learn about our pageant, sponsorship opportunities, and how to apply. How can I assist you today?
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbot-quick-replies" id="quickReplies">
+                <button class="quick-reply-btn" data-message="Tell me about the pageant">About the pageant</button>
+                <button class="quick-reply-btn" data-message="How do I apply?">How to apply</button>
+                <button class="quick-reply-btn" data-message="Sponsorship information">Sponsorship</button>
+                <button class="quick-reply-btn" data-message="Contact information">Contact us</button>
+            </div>
+
+            <div class="chatbot-input-container">
+                <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your message..." autocomplete="off">
+                <button class="chatbot-send" id="chatbotSend" aria-label="Send Message">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
 

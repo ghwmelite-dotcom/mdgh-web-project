@@ -546,6 +546,314 @@ document.querySelectorAll('.btn').forEach(btn => {
 console.log('%cMiss Diaspora Ghana', 'font-size: 24px; font-weight: bold; color: #F8B92F;');
 console.log('%cEmpowering women of African descent to lead, serve, and connect Ghana with its global diaspora.', 'font-size: 14px; color: #666;');
 
+// ========================================
+// ENHANCED FEATURES & ANIMATIONS
+// ========================================
+
+// Page Loader
+window.addEventListener('load', () => {
+    const loader = document.getElementById('pageLoader');
+    if (loader) {
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            // Remove from DOM after transition
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }, 1500);
+    }
+});
+
+// Enhanced Scroll Animations with IntersectionObserver
+const enhancedObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Add animation classes based on data attributes
+            const animationType = entry.target.dataset.animation || 'fade-in';
+            entry.target.classList.add(animationType);
+
+            // For staggered animations on children
+            if (entry.target.dataset.stagger) {
+                const children = entry.target.children;
+                Array.from(children).forEach((child, index) => {
+                    setTimeout(() => {
+                        child.style.opacity = '1';
+                        child.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Observe elements for animations
+document.addEventListener('DOMContentLoaded', () => {
+    // Add animation attributes to sections
+    document.querySelectorAll('.pillar-card').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease-out';
+        el.dataset.animation = 'scale-in';
+        enhancedObserver.observe(el);
+    });
+
+    document.querySelectorAll('.objective-card').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease-out';
+        el.dataset.animation = 'bounce-in';
+        enhancedObserver.observe(el);
+    });
+
+    document.querySelectorAll('.program-card').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateX(-50px)';
+        el.style.transition = 'all 0.6s ease-out';
+        el.dataset.animation = 'slide-in-left';
+        enhancedObserver.observe(el);
+    });
+
+    document.querySelectorAll('.tier-card').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'scale(0.8)';
+        el.style.transition = 'all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+        el.dataset.animation = 'flip-in';
+        setTimeout(() => {
+            enhancedObserver.observe(el);
+        }, index * 200);
+    });
+});
+
+// Parallax Effect for Multiple Elements
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+
+    // Hero parallax (already exists, keep it)
+    const hero = document.querySelector('.hero');
+    if (hero && scrolled < window.innerHeight) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+
+    // About section parallax
+    const aboutImage = document.querySelector('.about-image');
+    if (aboutImage) {
+        const rect = aboutImage.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const offset = (window.innerHeight - rect.top) * 0.1;
+            aboutImage.style.transform = `translateY(${offset}px)`;
+        }
+    }
+});
+
+// ========================================
+// CHATBOT FUNCTIONALITY
+// ========================================
+
+const chatbotKnowledgeBase = {
+    'about': {
+        keywords: ['about', 'pageant', 'what is', 'tell me', 'mdgh', 'miss diaspora'],
+        response: 'Miss Diaspora Ghana (MDGH) is dedicated to celebrating the beauty and strength of women of African descent. Our mission empowers young leaders to connect with their roots and make a difference through leadership training, cultural identity, and social impact programs.'
+    },
+    'apply': {
+        keywords: ['apply', 'application', 'how to', 'register', 'sign up', 'join', 'participate'],
+        response: 'To apply for Miss Diaspora Ghana, scroll to the "Contact" section and fill out the form with your details. Select "Pageant Application" as the subject. You can also reach us at info@missdiasporagh.org or call +233 591942227.'
+    },
+    'requirements': {
+        keywords: ['requirements', 'eligible', 'eligibility', 'qualify', 'criteria'],
+        response: 'Applicants must be women of African descent, aged 18-30, with a passion for leadership and cultural empowerment. You should have a cause you\'re passionate about and be willing to serve as an ambassador for one year if crowned.'
+    },
+    'sponsorship': {
+        keywords: ['sponsor', 'sponsorship', 'partner', 'partnership', 'tiers', 'benefits'],
+        response: 'We offer 4 sponsorship tiers: Platinum (GHS 150,000+), Gold (GHS 100,000), Silver (GHS 50,000), and Bronze (GHS 25,000). Benefits include brand visibility, VIP tickets, media coverage, and more. Scroll to the Sponsorship section for full details!'
+    },
+    'contact': {
+        keywords: ['contact', 'reach', 'email', 'phone', 'call', 'message', 'location'],
+        response: 'You can reach us at:\n📧 info@missdiasporagh.org\n📞 +233 591942227 or +233 256123084\n👤 Yvonne Kofigah, General Manager\n🌐 www.missdiasporagh.org'
+    },
+    'programs': {
+        keywords: ['programs', 'initiatives', 'activities', 'events', 'what do', 'immersion'],
+        response: 'Our programs include: Mentorship Program, Cultural Workshops, Community Outreach, Cultural Immersion Week, Grand Finale Event, and Post-Event Ambassadorship. Each program is designed to empower and connect women with their heritage.'
+    },
+    'dates': {
+        keywords: ['when', 'date', 'schedule', 'timeline', 'year'],
+        response: 'The Miss Diaspora Ghana pageant runs annually. For specific dates for this year\'s event, please contact us directly or check our website for updates. The pageant typically includes a cultural immersion week followed by the grand finale.'
+    },
+    'prizes': {
+        keywords: ['prize', 'win', 'reward', 'crown', 'winner', 'what do you get'],
+        response: 'The crowned queen receives a 1-year ambassadorial role, scholarship opportunities, international exposure, and the chance to champion causes close to her heart. Additional prizes and benefits are announced closer to the event date.'
+    },
+    'contestants': {
+        keywords: ['contestants', 'participants', 'competitors', 'queens', 'finalists'],
+        response: 'Our contestants are inspiring women from across the diaspora - from the USA, UK, Canada, Australia, and beyond. Each brings unique talents, causes, and a passion for cultural empowerment. Check out the Contestants section to meet them!'
+    }
+};
+
+class ChatBot {
+    constructor() {
+        this.isOpen = false;
+        this.messagesContainer = document.getElementById('chatbotMessages');
+        this.input = document.getElementById('chatbotInput');
+        this.sendButton = document.getElementById('chatbotSend');
+        this.toggleButton = document.getElementById('chatbotToggle');
+        this.closeButton = document.getElementById('chatbotClose');
+        this.window = document.getElementById('chatbotWindow');
+        this.quickReplies = document.getElementById('quickReplies');
+
+        this.init();
+    }
+
+    init() {
+        // Toggle chatbot
+        this.toggleButton.addEventListener('click', () => this.toggle());
+        this.closeButton.addEventListener('click', () => this.close());
+
+        // Send message
+        this.sendButton.addEventListener('click', () => this.sendMessage());
+        this.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.sendMessage();
+        });
+
+        // Quick replies
+        document.querySelectorAll('.quick-reply-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const message = btn.dataset.message;
+                this.input.value = message;
+                this.sendMessage();
+            });
+        });
+    }
+
+    toggle() {
+        if (this.isOpen) {
+            this.close();
+        } else {
+            this.open();
+        }
+    }
+
+    open() {
+        this.window.classList.add('active');
+        this.isOpen = true;
+        this.input.focus();
+    }
+
+    close() {
+        this.window.classList.remove('active');
+        this.isOpen = false;
+    }
+
+    sendMessage() {
+        const message = this.input.value.trim();
+        if (!message) return;
+
+        // Add user message
+        this.addMessage(message, 'user');
+        this.input.value = '';
+
+        // Show typing indicator
+        this.showTypingIndicator();
+
+        // Get bot response
+        setTimeout(() => {
+            this.hideTypingIndicator();
+            const response = this.getBotResponse(message);
+            this.addMessage(response, 'bot');
+        }, 1000 + Math.random() * 1000);
+    }
+
+    addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chatbot-message ${sender}`;
+
+        const time = new Date().toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        messageDiv.innerHTML = `
+            <div class="message-avatar">${sender === 'bot' ? 'MG' : 'U'}</div>
+            <div class="message-content">
+                <div class="message-bubble">${text.replace(/\n/g, '<br>')}</div>
+            </div>
+        `;
+
+        this.messagesContainer.appendChild(messageDiv);
+        this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+    }
+
+    getBotResponse(userMessage) {
+        const lowerMessage = userMessage.toLowerCase();
+
+        // Check knowledge base
+        for (const [key, value] of Object.entries(chatbotKnowledgeBase)) {
+            if (value.keywords.some(keyword => lowerMessage.includes(keyword))) {
+                return value.response;
+            }
+        }
+
+        // Greeting responses
+        if (lowerMessage.match(/\b(hi|hello|hey|greetings)\b/)) {
+            return 'Hello! 👋 How can I help you learn more about Miss Diaspora Ghana today?';
+        }
+
+        // Thank you responses
+        if (lowerMessage.match(/\b(thank|thanks|appreciate)\b/)) {
+            return 'You\'re very welcome! Is there anything else you\'d like to know about Miss Diaspora Ghana?';
+        }
+
+        // Default response
+        return 'I\'m here to help! You can ask me about:\n\n• The pageant and how it works\n• Application process and requirements\n• Sponsorship opportunities\n• Our programs and initiatives\n• Contact information\n\nWhat would you like to know?';
+    }
+
+    showTypingIndicator() {
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'chatbot-message bot typing-indicator-message';
+        typingDiv.innerHTML = `
+            <div class="message-avatar">MG</div>
+            <div class="message-content">
+                <div class="message-bubble typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+        `;
+
+        this.messagesContainer.appendChild(typingDiv);
+        this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+    }
+
+    hideTypingIndicator() {
+        const indicator = this.messagesContainer.querySelector('.typing-indicator-message');
+        if (indicator) {
+            indicator.remove();
+        }
+    }
+}
+
+// Initialize chatbot
+document.addEventListener('DOMContentLoaded', () => {
+    new ChatBot();
+});
+
+// Smooth scroll with offset for fixed nav
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
 // Contestant Gallery Functionality
 const contestantsData = [
     {
