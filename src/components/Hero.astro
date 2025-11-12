@@ -1,7 +1,8 @@
 ---
+import { ArrowRight, ChevronDown } from 'lucide-astro';
 ---
 
-<section id="home" class="relative h-screen flex items-center overflow-hidden noise" style="isolation: isolate;">
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden noise" style="min-height: 110vh; isolation: isolate;">
   <!-- Video Background (Mobile: Full Background, Desktop: Left Half) -->
   <div class="absolute inset-0 lg:w-1/2 lg:left-0 overflow-hidden" style="max-height: 100vh;">
     <video
@@ -9,106 +10,121 @@
       muted
       loop
       playsinline
+      preload="metadata"
       class="absolute inset-0 w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-[3000ms]"
     >
       <source src="/assets/videos/mdgh intro vid.mp4" type="video/mp4" />
     </video>
+
     <!-- Mobile: No overlay (text has shadow), Desktop: Gradient to right -->
-    <div class="absolute inset-0 bg-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-black/90"></div>
+    <div class="absolute inset-0 bg-transparent lg:bg-gradient-to-r lg:from-black/20 lg:via-black/60 lg:to-black"></div>
 
-    <!-- Floating Logo -->
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hero-logo opacity-30 lg:opacity-100">
-      <img
-        src="/assets/images/logos/mdgh main logo mini.png"
-        alt="MDGH"
-        class="w-32 h-32 lg:w-48 lg:h-48 opacity-20 animate-pulse"
-      />
-    </div>
-  </div>
-
-  <!-- Content (Mobile: On top of video with text shadow, Desktop: Right Half) -->
-  <div class="relative w-full lg:w-1/2 lg:ml-auto flex items-center justify-center p-6 sm:p-8 md:p-12 lg:p-20 lg:bg-black z-10">
-    <div class="hero-content max-w-2xl w-full space-y-6 sm:space-y-8 md:space-y-12">
-        <!-- Subtitle -->
-        <div class="hero-tag overflow-hidden">
-          <p class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold">Est. 2025</p>
-        </div>
-
-        <!-- Main Title with Decorative Elements -->
-        <div class="relative">
-          <!-- Decorative Line Top -->
-          <div class="hero-line-top absolute -top-8 left-0 w-20 h-0.5 bg-gradient-to-r from-[#F8B92F] to-transparent"></div>
-
-          <div class="space-y-1 overflow-hidden">
-            <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-none">
-              <span class="block text-shine">MISS</span>
-              <span class="block text-white">DIASPORA</span>
-              <span class="block bg-gradient-to-r from-[#F8B92F] via-[#FFD700] to-[#F8B92F] bg-clip-text text-transparent">GHANA</span>
-            </h1>
-          </div>
-
-          <!-- Decorative Line Bottom -->
-          <div class="hero-line-bottom absolute -bottom-8 right-0 w-20 h-0.5 bg-gradient-to-l from-[#F8B92F] to-transparent"></div>
-        </div>
-
-        <!-- Description with prettier styling -->
-        <div class="hero-desc overflow-hidden relative">
-          <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 lg:text-white/70 font-light leading-relaxed relative z-10">
-            <span class="inline-block hero-word">Celebrating</span>{' '}
-            <span class="inline-block hero-word text-[#F8B92F] font-semibold">Beauty</span>,{' '}
-            <span class="inline-block hero-word text-[#F8B92F] font-semibold">Culture</span>{' '}
-            <span class="inline-block hero-word">&</span>{' '}
-            <span class="inline-block hero-word text-[#F8B92F] font-semibold">Impact</span>{' '}
-            <span class="inline-block hero-word">across</span>{' '}
-            <span class="inline-block hero-word">the</span>{' '}
-            <span class="inline-block hero-word">Diaspora</span>
-          </p>
-          <!-- Subtle glow effect -->
-          <div class="absolute inset-0 bg-[#F8B92F]/5 blur-3xl -z-10"></div>
-        </div>
-
-        <!-- CTA Buttons -->
-        <div class="hero-cta flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6">
-          <a
-            href="#about"
-            class="group magnetic relative px-8 md:px-10 py-4 md:py-5 bg-[#F8B92F] text-black font-bold text-base md:text-lg overflow-hidden text-center"
-          >
-            <span class="relative z-10">EXPLORE PAGEANT</span>
-            <div class="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#F8B92F] transform translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
-            <span class="absolute right-4 top-1/2 transform -translate-y-1/2 group-hover:translate-x-2 transition-transform text-xl md:text-2xl">→</span>
-          </a>
-          <a
-            href="#contact"
-            class="magnetic px-8 md:px-10 py-4 md:py-5 border-2 border-white text-white font-bold text-base md:text-lg hover:bg-white hover:text-black transition-all duration-300 text-center"
-          >
-            APPLY NOW
-          </a>
-        </div>
-
-        <!-- Stats -->
-        <div class="hero-stats grid grid-cols-3 gap-4 md:gap-8 pt-8 md:pt-12 border-t border-white/10">
-          <div>
-            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F8B92F]">12+</div>
-            <div class="text-xs sm:text-sm text-white/60 uppercase tracking-wider mt-1 md:mt-2">Countries</div>
-          </div>
-          <div>
-            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F8B92F]">50+</div>
-            <div class="text-xs sm:text-sm text-white/60 uppercase tracking-wider mt-1 md:mt-2">Contestants</div>
-          </div>
-          <div>
-            <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F8B92F]">1M+</div>
-            <div class="text-xs sm:text-sm text-white/60 uppercase tracking-wider mt-1 md:mt-2">Reach</div>
-          </div>
-        </div>
+    <!-- Floating Logo with Premium Glow -->
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hero-logo opacity-20 lg:opacity-100">
+      <div class="relative">
+        <!-- Glow Effect -->
+        <div class="absolute inset-0 bg-[#F8B92F] opacity-20 blur-[100px] rounded-full"></div>
+        <img
+          src="/assets/images/logos/mdgh main logo mini.png"
+          alt="MDGH"
+          loading="lazy"
+          decoding="async"
+          class="relative w-32 h-32 lg:w-56 lg:h-56 opacity-15 animate-pulse"
+        />
       </div>
     </div>
   </div>
 
-  <!-- Scroll Indicator -->
-  <div class="absolute bottom-12 right-12 hidden lg:block">
-    <div class="flex items-center gap-4 rotate-90 origin-center">
-      <span class="text-white/40 text-sm uppercase tracking-widest">Scroll to explore</span>
-      <div class="w-16 h-px bg-white/20"></div>
+  <!-- Content (Mobile: On top of video with text shadow, Desktop: Right Half) -->
+  <div class="relative w-full lg:w-1/2 lg:ml-auto flex items-start justify-center px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 z-10" style="padding-top: 180px; background: linear-gradient(to right, rgba(0,0,0,0.8), #1a1a1a);">
+    <div class="hero-content max-w-xl lg:max-w-2xl w-full space-y-5 sm:space-y-6 lg:space-y-7" style="margin-top: 80px;">
+      <!-- Decorative Element Top -->
+      <div class="hero-decorative-top flex items-center gap-4 opacity-0">
+        <div class="w-16 h-px bg-gradient-to-r from-[#F8B92F] to-transparent"></div>
+        <span class="text-[#F8B92F] uppercase tracking-[0.3em] text-xs sm:text-sm font-bold">Est. 2025</span>
+      </div>
+
+      <!-- Main Title with Premium Styling -->
+      <div class="relative">
+        <div class="space-y-1 sm:space-y-2 overflow-hidden">
+          <h1 class="hero-title text-display text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-[0.95]">
+            <span class="block text-white hero-line-1">MISS</span>
+            <span class="block text-white hero-line-2">DIASPORA</span>
+            <span class="block bg-gradient-to-r from-[#F8B92F] via-[#FFD700] to-[#F8B92F] bg-clip-text text-transparent hero-line-3">
+              GHANA
+            </span>
+          </h1>
+        </div>
+      </div>
+
+      <!-- Tagline with Luxury Typography -->
+      <div class="hero-desc overflow-hidden relative opacity-0">
+        <div class="flex flex-wrap gap-x-2 sm:gap-x-3 gap-y-1 sm:gap-y-2 text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl text-heading text-white/90 lg:text-white/80 font-light leading-relaxed">
+          <span class="hero-word inline-block">Celebrating</span>
+          <span class="hero-word inline-block text-[#F8B92F] font-semibold">Beauty</span>
+          <span class="hero-word inline-block">&</span>
+          <span class="hero-word inline-block text-[#F8B92F] font-semibold">Culture</span>
+          <span class="hero-word inline-block">&</span>
+          <span class="hero-word inline-block text-[#F8B92F] font-semibold">Impact</span>
+        </div>
+        <!-- Subtle glow effect -->
+        <div class="absolute inset-0 bg-[#F8B92F]/5 blur-3xl -z-10"></div>
+      </div>
+
+      <!-- Premium CTA Buttons -->
+      <div class="hero-cta flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 opacity-0">
+        <a
+          href="#about"
+          class="group magnetic relative px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] text-black font-bold text-sm sm:text-base lg:text-base overflow-hidden text-center rounded-full hover:shadow-2xl hover:shadow-[#F8B92F]/50 transition-all duration-500"
+        >
+          <span class="relative z-10 flex items-center justify-center gap-2">
+            EXPLORE PAGEANT
+            <ArrowRight class="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+          </span>
+        </a>
+        <a
+          href="#contact"
+          class="magnetic px-6 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 border-2 border-white/30 hover:border-[#F8B92F] text-white hover:text-[#F8B92F] font-bold text-sm sm:text-base lg:text-base transition-all duration-500 text-center rounded-full backdrop-blur-sm hover:backdrop-blur-lg hover:bg-white/5"
+        >
+          APPLY NOW
+        </a>
+      </div>
+
+      <!-- Premium Stats with Better Styling -->
+      <div class="hero-stats grid grid-cols-3 gap-4 sm:gap-6 lg:gap-6 pt-5 sm:pt-6 lg:pt-7 border-t border-white/10 opacity-0">
+        <div class="group text-center sm:text-left">
+          <div class="text-display text-2xl sm:text-3xl lg:text-3xl font-black gradient-text mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
+            12+
+          </div>
+          <div class="text-[10px] sm:text-xs lg:text-sm text-white/50 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold">Countries</div>
+        </div>
+        <div class="group text-center sm:text-left">
+          <div class="text-display text-2xl sm:text-3xl lg:text-3xl font-black gradient-text mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
+            50+
+          </div>
+          <div class="text-[10px] sm:text-xs lg:text-sm text-white/50 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold">Contestants</div>
+        </div>
+        <div class="group text-center sm:text-left">
+          <div class="text-display text-2xl sm:text-3xl lg:text-3xl font-black gradient-text mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
+            1M+
+          </div>
+          <div class="text-[10px] sm:text-xs lg:text-sm text-white/50 uppercase tracking-[0.15em] sm:tracking-[0.2em] font-semibold">Reach</div>
+        </div>
+      </div>
+
+      <!-- Decorative Element Bottom -->
+      <div class="hero-decorative-bottom flex items-center gap-4 opacity-0 pt-3 sm:pt-4 lg:pt-5">
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-[#F8B92F]/30 to-transparent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Premium Scroll Indicator -->
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 lg:bottom-12 lg:left-auto lg:right-12 lg:translate-x-0 hero-scroll-indicator opacity-0">
+    <div class="flex flex-col lg:flex-row items-center gap-4 lg:rotate-90 lg:origin-center">
+      <span class="text-white/40 text-xs uppercase tracking-[0.3em] font-semibold">Scroll to explore</span>
+      <div class="w-px h-16 lg:w-20 lg:h-px bg-gradient-to-b lg:bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+      <ChevronDown class="w-5 h-5 text-white/40 animate-bounce lg:hidden" />
     </div>
   </div>
 </section>
@@ -116,98 +132,175 @@
 <script>
   import { gsap } from 'gsap';
 
-  // Enhanced entrance animations
+  // Premium entrance animation timeline
   const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-  tl.from('.hero-tag', {
-    y: 50,
-    opacity: 0,
+  // Decorative top
+  tl.to('.hero-decorative-top', {
+    opacity: 1,
+    x: 0,
     duration: 1,
     delay: 0.3,
   })
-  // Decorative line top
-  .from('.hero-line-top', {
-    scaleX: 0,
-    transformOrigin: 'left',
+
+  // Title lines with dramatic entrance
+  .to('.hero-line-1', {
+    y: 0,
+    opacity: 1,
+    rotateX: 0,
+    duration: 1.2,
+  }, '-=0.7')
+  .to('.hero-line-2', {
+    y: 0,
+    opacity: 1,
+    rotateX: 0,
+    duration: 1.2,
+  }, '-=0.9')
+  .to('.hero-line-3', {
+    y: 0,
+    opacity: 1,
+    rotateX: 0,
+    duration: 1.2,
+  }, '-=0.9')
+
+  // Description with staggered words
+  .to('.hero-desc', {
+    opacity: 1,
     duration: 0.8,
   }, '-=0.5')
-  // Title with 3D rotation
-  .from('.hero-title span', {
-    y: 200,
-    opacity: 0,
-    rotateX: 90,
-    stagger: 0.15,
-    duration: 1,
-  }, '-=0.6')
-  // Decorative line bottom
-  .from('.hero-line-bottom', {
-    scaleX: 0,
-    transformOrigin: 'right',
-    duration: 0.8,
-  }, '-=0.8')
-  // Description words with stagger
   .from('.hero-word', {
-    y: 20,
-    opacity: 0,
-    stagger: 0.05,
-    duration: 0.6,
-  }, '-=0.5')
-  // Buttons
-  .from('.hero-cta a', {
     y: 30,
     opacity: 0,
-    scale: 0.9,
-    stagger: 0.15,
-    duration: 0.8,
-  }, '-=0.3')
-  // Stats
-  .from('.hero-stats > div', {
-    y: 20,
-    opacity: 0,
-    stagger: 0.1,
+    stagger: 0.04,
     duration: 0.6,
-  }, '-=0.3');
+  }, '-=0.5')
 
-  // Continuous floating animation for title
+  // CTAs
+  .to('.hero-cta', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+  }, '-=0.4')
+
+  // Stats
+  .to('.hero-stats', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+  }, '-=0.6')
+
+  // Decorative bottom
+  .to('.hero-decorative-bottom', {
+    opacity: 1,
+    duration: 1,
+  }, '-=0.6')
+
+  // Scroll indicator
+  .to('.hero-scroll-indicator', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+  }, '-=0.8');
+
+  // Set initial states for animated elements
+  gsap.set('.hero-line-1, .hero-line-2, .hero-line-3', {
+    y: 150,
+    opacity: 0,
+    rotateX: 90,
+  });
+
+  gsap.set('.hero-cta, .hero-stats, .hero-scroll-indicator', {
+    opacity: 0,
+    y: 30,
+  });
+
+  // Continuous subtle float animation for title
   gsap.to('.hero-title', {
-    y: -10,
-    duration: 2,
+    y: -8,
+    duration: 3,
     ease: 'power1.inOut',
     yoyo: true,
     repeat: -1,
   });
 
-  // Shimmer effect on gold text
-  gsap.to('.text-shine', {
-    backgroundPosition: '200% 0',
-    duration: 3,
-    ease: 'none',
+  // Floating animation for logo
+  gsap.to('.hero-logo', {
+    y: -20,
+    duration: 4,
+    ease: 'power1.inOut',
+    yoyo: true,
     repeat: -1,
+  });
+
+  // Stats counter animation (on hover)
+  document.querySelectorAll('.hero-stats > div').forEach((stat) => {
+    stat.addEventListener('mouseenter', () => {
+      const number = stat.querySelector('.text-display');
+      if (number) {
+        gsap.to(number, {
+          scale: 1.1,
+          duration: 0.3,
+          ease: 'back.out(2)',
+        });
+      }
+    });
+    stat.addEventListener('mouseleave', () => {
+      const number = stat.querySelector('.text-display');
+      if (number) {
+        gsap.to(number, {
+          scale: 1,
+          duration: 0.3,
+          ease: 'back.out(2)',
+        });
+      }
+    });
   });
 </script>
 
 <style>
-  /* Ensure hero takes full screen */
+  /* Ensure hero takes full screen with extra space for stats */
   #home {
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 110vh;
+    min-height: 110dvh;
   }
 
-  /* On mobile, ensure content doesn't overflow */
-  @media (max-width: 1023px) {
+  /* On mobile, ensure proper sizing and readability */
+  @media (max-width: 640px) {
     #home {
-      min-height: max(100vh, 800px);
+      min-height: 110vh;
     }
 
-    /* Add strong text shadow on mobile for readability without overlay */
+    /* Add strong text shadow on mobile for readability */
+    .hero-content * {
+      text-shadow: 0 2px 40px rgba(0, 0, 0, 0.95), 0 0 80px rgba(0, 0, 0, 0.9);
+    }
+  }
+
+  /* Tablet adjustments */
+  @media (min-width: 641px) and (max-width: 1023px) {
+    #home {
+      min-height: 110vh;
+    }
+
     .hero-content * {
       text-shadow: 0 2px 30px rgba(0, 0, 0, 0.9), 0 0 60px rgba(0, 0, 0, 0.8);
     }
   }
 
-  /* Text effects */
+  /* Title responsiveness */
   .hero-title span {
     display: block;
     will-change: transform;
+  }
+
+  /* Premium button hover effect */
+  .magnetic {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+
+  @media (min-width: 1024px) {
+    .magnetic:hover {
+      transform: translateY(-2px);
+    }
   }
 </style>

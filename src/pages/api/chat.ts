@@ -87,7 +87,7 @@ Always be friendly, informative, and encouraging. If asked about applying, direc
         'X-Title': 'MDGH Chatbot'
       },
       body: JSON.stringify({
-        model: 'google/gemini-flash-1.5', // Fast and efficient Gemini model
+        model: 'meta-llama/llama-3.2-3b-instruct:free', // Fast and reliable free model
         messages: [
           {
             role: 'system',

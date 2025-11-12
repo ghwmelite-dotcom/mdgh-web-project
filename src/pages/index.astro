@@ -3,6 +3,28 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
 import Chatbot from '../components/Chatbot.astro';
+import {
+	Sparkles,
+	Users,
+	Heart,
+	Target,
+	Crown,
+	Globe,
+	Plane,
+	HeartHandshake,
+	Megaphone,
+	GraduationCap,
+	Palette,
+	HandHeart,
+	Calendar,
+	Star,
+	Trophy,
+	User,
+	Phone,
+	Mail,
+	Globe as WebIcon,
+	Check
+} from 'lucide-astro';
 import '../styles/global.css';
 ---
 
@@ -10,69 +32,158 @@ import '../styles/global.css';
 	<Navigation />
 	<Hero />
 
-	<!-- Pillars Section -->
-	<section id="pillars" class="relative py-24 bg-black">
-		<div class="container mx-auto px-6">
+	<!-- Pillars Section - Premium Redesign -->
+	<section id="pillars" class="relative py-32 overflow-hidden" style="background: linear-gradient(135deg, #1a1a1a 0%, #2a2520 50%, #1a1a1a 100%);">
+		<!-- Enhanced Background Elements -->
+		<div class="absolute inset-0">
+			<div class="absolute top-1/4 left-0 w-96 h-96 bg-[#F8B92F] rounded-full blur-[150px] opacity-20"></div>
+			<div class="absolute bottom-1/4 right-0 w-96 h-96 bg-[#FFD700] rounded-full blur-[150px] opacity-15"></div>
+			<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-[#F8B92F]/10 to-transparent rounded-full"></div>
+		</div>
+
+		<div class="container mx-auto px-6 relative z-10">
+			<!-- Section Header -->
+			<div class="text-center mb-20">
+				<div class="inline-block mb-6">
+					<span class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold flex items-center gap-2">
+						<Sparkles class="w-4 h-4" />
+						Our Three Pillars
+					</span>
+				</div>
+				<h2 class="text-heading text-6xl lg:text-7xl text-white mb-6 max-w-4xl mx-auto">
+					The Foundation of <span class="gradient-text">Excellence</span>
+				</h2>
+				<p class="text-body-premium text-xl text-white/60 max-w-2xl mx-auto">
+					Three core principles guide our mission to empower women across the diaspora
+				</p>
+			</div>
+
 			<div class="grid md:grid-cols-3 gap-8">
 				{[
 					{
-						icon: '/assets/images/content/culture.png',
+						icon: Palette,
 						number: '01',
 						title: 'Cultural Identity',
-						description: 'Fostering a deep appreciation for African heritage among women of the diaspora through meaningful experiences.'
+						description: 'Fostering a deep appreciation for African heritage among women of the diaspora through meaningful experiences and cultural immersion.'
 					},
 					{
-						icon: '/assets/images/content/leadership.png',
+						icon: GraduationCap,
 						number: '02',
 						title: 'Leadership Training',
-						description: 'Equipping young women with essential skills to thrive in their communities and beyond.'
+						description: 'Equipping young women with essential skills, mentorship, and opportunities to thrive in their communities and beyond.'
 					},
 					{
-						icon: '/assets/images/content/social impact.png',
+						icon: HeartHandshake,
 						number: '03',
 						title: 'Social Impact',
 						description: 'Creating lasting change by empowering women to advocate for their communities and inspire future generations.'
 					}
-				].map((pillar) => (
-					<div class="pillar-card group relative glass p-8 rounded-2xl hover:scale-105 transition-all duration-300 border border-[#F8B92F]/20">
-						<div class="absolute top-6 right-6 text-6xl font-bold text-[#F8B92F]/10">{pillar.number}</div>
-						<img src={pillar.icon} alt={pillar.title} class="w-20 h-20 mb-6 relative z-10" />
-						<h3 class="text-2xl font-bold text-white mb-4 relative z-10">{pillar.title}</h3>
-						<p class="text-white/70 relative z-10">{pillar.description}</p>
-					</div>
-				))}
+				].map((pillar, index) => {
+					const IconComponent = pillar.icon;
+					return (
+						<div class="pillar-card group relative glass p-10 rounded-3xl hover:scale-[1.02] transition-all duration-500 border border-[#F8B92F]/20 hover:border-[#F8B92F]/50 overflow-hidden">
+							<!-- Animated Background -->
+							<div class="absolute inset-0 bg-gradient-to-br from-[#F8B92F]/0 to-[#F8B92F]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+							<!-- Number Watermark -->
+							<div class="absolute top-8 right-8 text-display text-8xl font-black text-[#F8B92F]/5 group-hover:text-[#F8B92F]/10 transition-colors duration-500">
+								{pillar.number}
+							</div>
+
+							<!-- Icon with Premium Styling -->
+							<div class="relative z-10 mb-8">
+								<div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#F8B92F] to-[#FFD700] flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+									<IconComponent class="w-10 h-10 text-black" stroke-width="2" />
+								</div>
+							</div>
+
+							<!-- Content -->
+							<div class="relative z-10">
+								<h3 class="text-heading text-3xl font-bold text-white mb-4 group-hover:text-[#F8B92F] transition-colors duration-300">
+									{pillar.title}
+								</h3>
+								<p class="text-body-premium text-white/70 leading-relaxed">
+									{pillar.description}
+								</p>
+							</div>
+
+							<!-- Decorative Element -->
+							<div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#F8B92F] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	</section>
 
-	<!-- About Section -->
-	<section id="about" class="relative py-24 animated-gradient grid-pattern">
-		<div class="container mx-auto px-6">
-			<div class="grid lg:grid-cols-2 gap-16 items-center">
-				<div class="about-image rounded-3xl overflow-hidden">
-					<img
-						src="/assets/images/content/a-medium-shot-of-a-confident-elegant-gha.jpg"
-						alt="Miss Diaspora Ghana"
-						class="w-full h-[600px] object-cover hover:scale-110 transition-transform duration-700"
-					/>
+	<!-- About Section - Luxury Redesign -->
+	<section id="about" class="relative py-32 animated-gradient grid-pattern overflow-hidden">
+		<!-- Enhanced Ambient Lighting -->
+		<div class="absolute inset-0">
+			<div class="absolute top-1/3 right-0 w-96 h-96 bg-[#F8B92F] rounded-full blur-[150px] opacity-25"></div>
+			<div class="absolute bottom-1/3 left-0 w-96 h-96 bg-[#FFD700] rounded-full blur-[150px] opacity-20"></div>
+			<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-[#F8B92F]/8 to-transparent rounded-full"></div>
+		</div>
+		<!-- Decorative Elements -->
+		<div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#F8B92F]/20 to-transparent"></div>
+		<div class="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-[#F8B92F]/20 to-transparent"></div>
+
+		<div class="container mx-auto px-6 relative z-10">
+			<div class="grid lg:grid-cols-2 gap-20 items-center">
+				<!-- Image with Premium Frame -->
+				<div class="about-image relative group">
+					<!-- Decorative Frame -->
+					<div class="absolute -inset-4 bg-gradient-to-br from-[#F8B92F] via-[#FFD700] to-[#F8B92F] rounded-3xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-700"></div>
+					<div class="absolute -inset-2 border-2 border-[#F8B92F]/30 rounded-3xl"></div>
+
+					<!-- Image Container -->
+					<div class="relative rounded-3xl overflow-hidden">
+						<img
+							src="/assets/images/content/a-medium-shot-of-a-confident-elegant-gha.jpg"
+							alt="Miss Diaspora Ghana"
+							loading="lazy"
+							decoding="async"
+							class="w-full h-[700px] object-cover hover:scale-105 transition-transform duration-1000"
+						/>
+						<!-- Overlay Gradient -->
+						<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+					</div>
 				</div>
-				<div class="space-y-6">
-					<span class="text-[#F8B92F] uppercase tracking-wider text-sm font-semibold">About Us</span>
-					<h2 class="text-5xl font-bold text-white leading-tight">About Miss Diaspora <span class="gradient-text">GH</span></h2>
-					<p class="text-white/80 text-lg">
-						Miss Diaspora Ghana (MDGH) is dedicated to celebrating the beauty and strength of women of African descent. Our mission empowers young leaders to connect with their roots and make a difference.
-					</p>
-					<p class="text-white/80 text-lg">
-						Motivated by the rich heritage and cultural legacy of Ghana, we seek to bridge the gap between the diaspora and their homeland through leadership and empowerment.
-					</p>
-					<div class="grid grid-cols-2 gap-6 pt-6">
-						<div class="glass p-6 rounded-xl">
-							<span class="text-[#F8B92F] text-sm uppercase tracking-wide">Organization</span>
-							<p class="text-white font-semibold mt-2">Nubian Crown Company Limited</p>
+
+				<!-- Content -->
+				<div class="space-y-8">
+					<div class="inline-block">
+						<span class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold flex items-center gap-2">
+							<Star class="w-4 h-4" />
+							About MDGH
+						</span>
+					</div>
+
+					<h2 class="text-heading text-6xl lg:text-7xl text-white leading-[1.1]">
+						Celebrating<br />
+						<span class="gradient-text">Beauty & Strength</span>
+					</h2>
+
+					<div class="space-y-6 text-body-premium text-xl text-white/70 leading-relaxed">
+						<p>
+							Miss Diaspora Ghana (MDGH) is dedicated to celebrating the <span class="text-white font-semibold">beauty and strength</span> of women of African descent. Our mission empowers young leaders to connect with their roots and make a lasting difference.
+						</p>
+						<p>
+							Motivated by the rich heritage and cultural legacy of Ghana, we bridge the gap between the diaspora and their homeland through <span class="text-white font-semibold">leadership, empowerment, and cultural celebration</span>.
+						</p>
+					</div>
+
+					<!-- Premium Info Cards -->
+					<div class="grid grid-cols-2 gap-6 pt-8">
+						<div class="glass-dark p-8 rounded-2xl border border-[#F8B92F]/20 hover:border-[#F8B92F]/50 transition-all duration-300 group">
+							<div class="w-12 h-1 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] mb-4 group-hover:w-full transition-all duration-500"></div>
+							<span class="text-[#F8B92F] text-sm uppercase tracking-wide font-bold">Organization</span>
+							<p class="text-white font-semibold mt-3 text-lg">Nubian Crown Company Limited</p>
 						</div>
-						<div class="glass p-6 rounded-xl">
-							<span class="text-[#F8B92F] text-sm uppercase tracking-wide">General Manager</span>
-							<p class="text-white font-semibold mt-2">Yvonne Kofigah</p>
+						<div class="glass-dark p-8 rounded-2xl border border-[#F8B92F]/20 hover:border-[#F8B92F]/50 transition-all duration-300 group">
+							<div class="w-12 h-1 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] mb-4 group-hover:w-full transition-all duration-500"></div>
+							<span class="text-[#F8B92F] text-sm uppercase tracking-wide font-bold">General Manager</span>
+							<p class="text-white font-semibold mt-3 text-lg">Yvonne Kofigah</p>
 						</div>
 					</div>
 				</div>
@@ -80,146 +191,346 @@ import '../styles/global.css';
 		</div>
 	</section>
 
-	<!-- Objectives Section -->
-	<section id="objectives" class="relative py-24 bg-black">
-		<div class="container mx-auto px-6">
-			<div class="text-center mb-16">
-				<span class="text-[#F8B92F] uppercase tracking-wider text-sm font-semibold">Our Mission</span>
-				<h2 class="text-5xl font-bold text-white mt-4 mb-6">Objectives</h2>
-				<p class="text-white/70 text-lg max-w-3xl mx-auto">
-					Miss Diaspora Ghana seeks to highlight the invaluable role that Africans abroad play in national development.
+	<!-- Objectives Section - Modern Premium Design -->
+	<section id="objectives" class="relative py-32" style="background: linear-gradient(180deg, #1f1f1f 0%, #2a2520 50%, #1f1f1f 100%);">
+		<!-- Ambient Lighting -->
+		<div class="absolute inset-0 opacity-30">
+			<div class="absolute top-0 left-1/4 w-64 h-64 bg-[#F8B92F] rounded-full blur-[120px]"></div>
+			<div class="absolute bottom-0 right-1/4 w-64 h-64 bg-[#FFD700] rounded-full blur-[120px]"></div>
+		</div>
+		<div class="container mx-auto px-6 relative z-10">
+			<!-- Section Header -->
+			<div class="text-center mb-20">
+				<div class="inline-block mb-6">
+					<span class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold flex items-center gap-2 justify-center">
+						<Target class="w-4 h-4" />
+						Our Mission & Objectives
+					</span>
+				</div>
+				<h2 class="text-heading text-6xl lg:text-7xl text-white mb-6">
+					Driving <span class="gradient-text">Change</span>
+				</h2>
+				<p class="text-body-premium text-xl text-white/60 max-w-3xl mx-auto">
+					Miss Diaspora Ghana highlights the invaluable role that Africans abroad play in national development
 				</p>
 			</div>
+
+			<!-- Objectives Grid -->
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 				{[
-					{ icon: '🎯', title: 'Promote Cultural Identity', description: 'Celebrate and preserve Ghanaian heritage and traditions among diaspora communities.' },
-					{ icon: '👑', title: 'Empower Young Women', description: 'Provide a platform for young women of African descent to showcase their talents and leadership.' },
-					{ icon: '🌍', title: 'Strengthen Diaspora Engagement', description: 'Foster meaningful connections between African communities abroad and their homeland.' },
-					{ icon: '✈️', title: 'Promote Tourism & Investment', description: 'Position Ghana as a vibrant destination for cultural tourism and global partnership.' },
-					{ icon: '💚', title: 'Support Social Impact', description: 'Empower contestants to champion causes such as education and women\'s health.' },
-					{ icon: '📢', title: 'Create Brand Opportunities', description: 'Offer sponsors strong visibility and engagement across global audiences.' }
-				].map((obj) => (
-					<div class="objective-card glass p-6 rounded-2xl hover:border-[#F8B92F] border-2 border-transparent transition-all duration-300 group">
-						<div class="text-5xl mb-4">{obj.icon}</div>
-						<h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#F8B92F] transition-colors">{obj.title}</h3>
-						<p class="text-white/70">{obj.description}</p>
-					</div>
-				))}
+					{ icon: Target, title: 'Promote Cultural Identity', description: 'Celebrate and preserve Ghanaian heritage and traditions among diaspora communities worldwide.' },
+					{ icon: Crown, title: 'Empower Young Women', description: 'Provide a platform for young women of African descent to showcase their talents and leadership potential.' },
+					{ icon: Globe, title: 'Strengthen Diaspora Engagement', description: 'Foster meaningful connections between African communities abroad and their homeland.' },
+					{ icon: Plane, title: 'Promote Tourism & Investment', description: 'Position Ghana as a vibrant destination for cultural tourism and global partnership opportunities.' },
+					{ icon: Heart, title: 'Support Social Impact', description: 'Empower contestants to champion causes such as education, health, and women\'s empowerment.' },
+					{ icon: Megaphone, title: 'Create Brand Opportunities', description: 'Offer sponsors strong visibility and engagement across diverse global audiences.' }
+				].map((obj) => {
+					const IconComponent = obj.icon;
+					return (
+						<div class="objective-card glass p-8 rounded-2xl hover:border-[#F8B92F] border-2 border-transparent transition-all duration-500 group relative overflow-hidden">
+							<!-- Hover Background Effect -->
+							<div class="absolute inset-0 bg-gradient-to-br from-[#F8B92F]/0 to-[#F8B92F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+							<!-- Icon -->
+							<div class="relative z-10 mb-6">
+								<div class="w-16 h-16 rounded-xl bg-[#F8B92F]/10 group-hover:bg-[#F8B92F]/20 flex items-center justify-center transition-all duration-500 group-hover:scale-110">
+									<IconComponent class="w-8 h-8 text-[#F8B92F]" stroke-width="2" />
+								</div>
+							</div>
+
+							<!-- Content -->
+							<div class="relative z-10">
+								<h3 class="text-heading text-2xl font-bold text-white mb-3 group-hover:text-[#F8B92F] transition-colors duration-300">
+									{obj.title}
+								</h3>
+								<p class="text-body-premium text-white/70 leading-relaxed">
+									{obj.description}
+								</p>
+							</div>
+
+							<!-- Decorative Line -->
+							<div class="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] group-hover:w-full transition-all duration-700"></div>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	</section>
 
-	<!-- Programs Section -->
-	<section id="programs" class="relative py-24 animated-gradient grid-pattern">
-		<div class="container mx-auto px-6">
-			<div class="text-center mb-16">
-				<span class="text-[#F8B92F] uppercase tracking-wider text-sm font-semibold">Our Initiatives</span>
-				<h2 class="text-5xl font-bold text-white mt-4 mb-6">Programs & Initiatives</h2>
-				<p class="text-white/70 text-lg max-w-3xl mx-auto">
-					Discover the impactful programs designed to uplift and empower women across the diaspora.
+	<!-- Programs Section - Sophisticated Design -->
+	<section id="programs" class="relative py-32 animated-gradient grid-pattern overflow-hidden">
+		<!-- Enhanced Ambient Lighting -->
+		<div class="absolute inset-0">
+			<div class="absolute top-1/4 left-1/3 w-80 h-80 bg-[#F8B92F] rounded-full blur-[140px] opacity-25"></div>
+			<div class="absolute bottom-1/4 right-1/3 w-80 h-80 bg-[#FFD700] rounded-full blur-[140px] opacity-20"></div>
+			<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-radial from-[#F8B92F]/10 to-transparent rounded-full"></div>
+		</div>
+		<div class="container mx-auto px-6 relative z-10">
+			<!-- Section Header -->
+			<div class="text-center mb-20">
+				<div class="inline-block mb-6">
+					<span class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold flex items-center gap-2 justify-center">
+						<Calendar class="w-4 h-4" />
+						Programs & Initiatives
+					</span>
+				</div>
+				<h2 class="text-heading text-6xl lg:text-7xl text-white mb-6">
+					Our <span class="gradient-text">Journey</span>
+				</h2>
+				<p class="text-body-premium text-xl text-white/60 max-w-3xl mx-auto">
+					Discover the impactful programs designed to uplift and empower women across the diaspora
 				</p>
 			</div>
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+			<!-- Programs Grid -->
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 				{[
-					{ num: '01', title: 'Mentorship Program', description: 'Connects young women with experienced leaders to guide their journeys.' },
-					{ num: '02', title: 'Cultural Workshops', description: 'Interactive workshops exploring Ghanaian traditions, arts, and languages.' },
-					{ num: '03', title: 'Community Outreach', description: 'Active engagement in local communities through social impact initiatives.' },
-					{ num: '04', title: 'Cultural Immersion Week', description: 'Finalists participate in cultural tours, community service, and mentorship.' },
-					{ num: '05', title: 'Grand Finale Event', description: 'Professionally produced, televised finale with talent showcases and crowning.' },
-					{ num: '06', title: 'Post-Event Ambassadorship', description: 'One-year ambassadorial role for the crowned queen and runners-up.' }
-				].map((program) => (
-					<div class="program-card glass-dark p-8 rounded-2xl hover:scale-105 transition-all duration-300 border border-white/10 relative overflow-hidden group">
-						<div class="absolute top-4 right-4 text-7xl font-bold text-[#F8B92F]/10 group-hover:text-[#F8B92F]/20 transition-colors">{program.num}</div>
-						<div class="w-12 h-1 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] mb-6"></div>
-						<h3 class="text-2xl font-bold text-white mb-4 relative z-10">{program.title}</h3>
-						<p class="text-white/70 relative z-10">{program.description}</p>
-					</div>
-				))}
+					{ num: '01', icon: Users, title: 'Mentorship Program', description: 'Connects young women with experienced leaders to guide their personal and professional journeys.' },
+					{ num: '02', icon: Palette, title: 'Cultural Workshops', description: 'Interactive workshops exploring Ghanaian traditions, arts, languages, and cultural practices.' },
+					{ num: '03', icon: HandHeart, title: 'Community Outreach', description: 'Active engagement in local communities through impactful social initiatives and programs.' },
+					{ num: '04', icon: Globe, title: 'Cultural Immersion Week', description: 'Finalists participate in cultural tours, community service, and intensive mentorship experiences.' },
+					{ num: '05', icon: Star, title: 'Grand Finale Event', description: 'Professionally produced, televised finale featuring talent showcases and the crowning ceremony.' },
+					{ num: '06', icon: Trophy, title: 'Post-Event Ambassadorship', description: 'One-year ambassadorial role for the crowned queen and runners-up to champion causes.' }
+				].map((program) => {
+					const IconComponent = program.icon;
+					return (
+						<div class="program-card glass-dark p-10 rounded-3xl hover:scale-[1.02] transition-all duration-500 border border-white/10 hover:border-[#F8B92F]/30 relative overflow-hidden group">
+							<!-- Number Watermark -->
+							<div class="absolute top-6 right-6 text-display text-8xl font-black text-[#F8B92F]/5 group-hover:text-[#F8B92F]/10 transition-colors duration-500">
+								{program.num}
+							</div>
+
+							<!-- Decorative Line -->
+							<div class="w-16 h-1 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] mb-8 group-hover:w-full transition-all duration-700"></div>
+
+							<!-- Icon -->
+							<div class="relative z-10 mb-6">
+								<div class="w-14 h-14 rounded-xl bg-[#F8B92F]/10 flex items-center justify-center group-hover:bg-[#F8B92F]/20 transition-all duration-500">
+									<IconComponent class="w-7 h-7 text-[#F8B92F]" stroke-width="2" />
+								</div>
+							</div>
+
+							<!-- Content -->
+							<div class="relative z-10">
+								<h3 class="text-heading text-2xl font-bold text-white mb-4">
+									{program.title}
+								</h3>
+								<p class="text-body-premium text-white/70 leading-relaxed">
+									{program.description}
+								</p>
+							</div>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	</section>
 
-	<!-- Sponsorship Section -->
-	<section id="sponsorship" class="relative py-24 bg-black">
-		<div class="container mx-auto px-6">
-			<div class="text-center mb-16">
-				<span class="text-[#F8B92F] uppercase tracking-wider text-sm font-semibold">Partnership</span>
-				<h2 class="text-5xl font-bold text-white mt-4 mb-6">Sponsorship Tiers</h2>
-				<p class="text-white/70 text-lg max-w-3xl mx-auto">
-					Join us in empowering young women and connecting the diaspora with Ghana.
+	<!-- Sponsorship Section - Luxury Premium Design -->
+	<section id="sponsorship" class="relative py-32 overflow-hidden" style="background: linear-gradient(135deg, #2a2520 0%, #1f1f1f 50%, #2a2520 100%);">
+		<!-- Enhanced Background Glow -->
+		<div class="absolute inset-0">
+			<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#F8B92F] rounded-full blur-[200px] opacity-25"></div>
+			<div class="absolute top-1/4 left-1/4 w-64 h-64 bg-[#FFD700] rounded-full blur-[100px] opacity-20"></div>
+			<div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#F8B92F] rounded-full blur-[100px] opacity-20"></div>
+		</div>
+
+		<div class="container mx-auto px-6 relative z-10">
+			<!-- Section Header -->
+			<div class="text-center mb-20">
+				<div class="inline-block mb-6">
+					<span class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold flex items-center gap-2 justify-center">
+						<HeartHandshake class="w-4 h-4" />
+						Partnership Opportunities
+					</span>
+				</div>
+				<h2 class="text-heading text-6xl lg:text-7xl text-white mb-6">
+					Sponsorship <span class="gradient-text">Tiers</span>
+				</h2>
+				<p class="text-body-premium text-xl text-white/60 max-w-3xl mx-auto">
+					Join us in empowering young women and connecting the diaspora with Ghana through strategic partnership
 				</p>
 			</div>
-			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+			<!-- Tiers Grid -->
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 				{[
-					{ tier: 'Platinum', price: 'GHS 150,000+', color: 'from-yellow-400 to-yellow-600', benefits: ['Title sponsor', 'Full logo placement', 'Speaking opportunity', '5 VIP tickets', 'Full-page advert'] },
-					{ tier: 'Gold', price: 'GHS 100,000', color: 'from-yellow-500 to-yellow-700', benefits: ['Prominent logo', '3 VIP tickets', 'Half-page advert', 'Media mentions', 'Product display'] },
-					{ tier: 'Silver', price: 'GHS 50,000', color: 'from-gray-300 to-gray-500', benefits: ['Logo on banners', '2 VIP tickets', 'Quarter-page advert', 'Social media recognition'] },
-					{ tier: 'Bronze', price: 'GHS 25,000', color: 'from-amber-600 to-amber-800', benefits: ['Logo listing', '1 VIP ticket', 'Event acknowledgment', 'Branded materials'] }
-				].map((tier) => (
-					<div class="tier-card glass p-8 rounded-2xl hover:scale-105 transition-all duration-300 border-2 border-[#F8B92F]/30 hover:border-[#F8B92F]">
-						<div class={`inline-block px-4 py-2 bg-gradient-to-r ${tier.color} text-white font-bold rounded-full text-sm mb-4`}>
+					{
+						tier: 'Platinum',
+						price: '150,000+',
+						currency: 'GHS',
+						gradient: 'from-yellow-400 via-yellow-500 to-yellow-600',
+						benefits: ['Title sponsor status', 'Full logo placement', 'Speaking opportunity', '5 VIP tickets', 'Full-page advertisement']
+					},
+					{
+						tier: 'Gold',
+						price: '100,000',
+						currency: 'GHS',
+						gradient: 'from-yellow-500 via-yellow-600 to-yellow-700',
+						benefits: ['Prominent logo placement', '3 VIP tickets', 'Half-page advertisement', 'Media mentions', 'Product display booth']
+					},
+					{
+						tier: 'Silver',
+						price: '50,000',
+						currency: 'GHS',
+						gradient: 'from-gray-300 via-gray-400 to-gray-500',
+						benefits: ['Logo on event banners', '2 VIP tickets', 'Quarter-page advertisement', 'Social media recognition']
+					},
+					{
+						tier: 'Bronze',
+						price: '25,000',
+						currency: 'GHS',
+						gradient: 'from-amber-600 via-amber-700 to-amber-800',
+						benefits: ['Logo listing', '1 VIP ticket', 'Event acknowledgment', 'Branded materials inclusion']
+					}
+				].map((tier, index) => (
+					<div class={`tier-card glass p-8 rounded-3xl hover:scale-[1.02] transition-all duration-500 border-2 border-[#F8B92F]/30 hover:border-[#F8B92F] relative overflow-hidden group ${index === 0 ? 'lg:transform lg:-translate-y-4' : ''}`}>
+						<!-- Premium Badge -->
+						<div class={`inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r ${tier.gradient} text-white font-bold rounded-full text-sm mb-6 shadow-lg`}>
+							{tier.tier === 'Platinum' && <Crown class="w-4 h-4" />}
 							{tier.tier}
 						</div>
-						<div class="text-4xl font-bold gradient-text mb-6">{tier.price}</div>
-						<ul class="space-y-3 mb-8">
+
+						<!-- Price Display -->
+						<div class="mb-8">
+							<div class="flex items-start gap-2">
+								<span class="text-[#F8B92F] text-2xl font-bold mt-2">{tier.currency}</span>
+								<span class="text-display text-5xl font-black gradient-text">{tier.price}</span>
+							</div>
+						</div>
+
+						<!-- Benefits List -->
+						<ul class="space-y-4 mb-10">
 							{tier.benefits.map((benefit) => (
-								<li class="flex items-start text-white/80">
-									<svg class="w-5 h-5 text-[#F8B92F] mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-									</svg>
-									<span>{benefit}</span>
+								<li class="flex items-start gap-3 text-white/80">
+									<div class="flex-shrink-0 mt-1">
+										<div class="w-6 h-6 rounded-full bg-[#F8B92F]/20 flex items-center justify-center">
+											<Check class="w-4 h-4 text-[#F8B92F]" stroke-width="3" />
+										</div>
+									</div>
+									<span class="text-body-premium">{benefit}</span>
 								</li>
 							))}
 						</ul>
-						<a href="#contact" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] text-black font-semibold rounded-full hover:shadow-xl transition-all">
-							Contact Us
+
+						<!-- CTA Button -->
+						<a
+							href="#contact"
+							class="block w-full text-center px-6 py-4 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#F8B92F]/30 transition-all duration-300 group-hover:scale-105"
+						>
+							Get Started
 						</a>
+
+						<!-- Decorative Element -->
+						{index === 0 && (
+							<div class="absolute -top-3 -right-3 bg-gradient-to-br from-[#F8B92F] to-[#FFD700] text-black text-xs font-bold px-4 py-2 rounded-full transform rotate-12 shadow-lg">
+								FEATURED
+							</div>
+						)}
 					</div>
 				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- Contact Section -->
-	<section id="contact" class="relative py-24 animated-gradient grid-pattern">
-		<div class="container mx-auto px-6">
-			<div class="text-center mb-16">
-				<span class="text-[#F8B92F] uppercase tracking-wider text-sm font-semibold">Get In Touch</span>
-				<h2 class="text-5xl font-bold text-white mt-4 mb-6">Contact Us</h2>
-				<p class="text-white/70 text-lg max-w-3xl mx-auto">
-					We'd love to hear from you. Reach out about the pageant, sponsorship, or how to get involved.
+	<!-- Contact Section - Premium Elegant Design -->
+	<section id="contact" class="relative py-32 animated-gradient grid-pattern overflow-hidden">
+		<!-- Enhanced Ambient Lighting -->
+		<div class="absolute inset-0">
+			<div class="absolute top-1/3 left-1/4 w-96 h-96 bg-[#F8B92F] rounded-full blur-[160px] opacity-30"></div>
+			<div class="absolute bottom-1/3 right-1/4 w-96 h-96 bg-[#FFD700] rounded-full blur-[160px] opacity-25"></div>
+			<div class="absolute top-0 right-0 w-64 h-64 bg-[#F8B92F] rounded-full blur-[100px] opacity-15"></div>
+		</div>
+		<div class="container mx-auto px-6 relative z-10">
+			<!-- Section Header -->
+			<div class="text-center mb-20">
+				<div class="inline-block mb-6">
+					<span class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold flex items-center gap-2 justify-center">
+						<Mail class="w-4 h-4" />
+						Get In Touch
+					</span>
+				</div>
+				<h2 class="text-heading text-6xl lg:text-7xl text-white mb-6">
+					Let's <span class="gradient-text">Connect</span>
+				</h2>
+				<p class="text-body-premium text-xl text-white/60 max-w-3xl mx-auto">
+					We'd love to hear from you. Reach out about the pageant, sponsorship opportunities, or how to get involved
 				</p>
 			</div>
-			<div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-12">
-				<div class="space-y-6">
+
+			<div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
+				<!-- Contact Information -->
+				<div class="space-y-8">
 					{[
-						{ icon: '👤', title: 'Yvonne Kofigah', subtitle: 'General Manager' },
-						{ icon: '📞', title: 'Phone', subtitle: '+233 591942227\n+233 256123084' },
-						{ icon: '✉️', title: 'Email', subtitle: 'info@missdiasporagh.org' },
-						{ icon: '🌐', title: 'Website', subtitle: 'www.missdiasporagh.org' }
-					].map((contact) => (
-						<div class="glass p-6 rounded-2xl flex items-start space-x-4">
-							<div class="text-4xl">{contact.icon}</div>
-							<div>
-								<h4 class="text-white font-bold text-lg mb-1">{contact.title}</h4>
-								<p class="text-white/70 whitespace-pre-line">{contact.subtitle}</p>
+						{ icon: User, title: 'Yvonne Kofigah', subtitle: 'General Manager', description: 'Leading MDGH with vision and dedication' },
+						{ icon: Phone, title: 'Phone', subtitle: '+233 591942227\n+233 256123084', description: 'Available Mon-Fri, 9AM-5PM GMT' },
+						{ icon: Mail, title: 'Email', subtitle: 'info@missdiasporagh.org', description: 'We respond within 24 hours' },
+						{ icon: WebIcon, title: 'Website', subtitle: 'www.missdiasporagh.org', description: 'Explore more about our mission' }
+					].map((contact) => {
+						const IconComponent = contact.icon;
+						return (
+							<div class="glass-dark p-8 rounded-2xl border border-[#F8B92F]/20 hover:border-[#F8B92F]/50 transition-all duration-300 group">
+								<div class="flex items-start gap-6">
+									<!-- Icon -->
+									<div class="flex-shrink-0">
+										<div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#F8B92F] to-[#FFD700] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+											<IconComponent class="w-8 h-8 text-black" stroke-width="2" />
+										</div>
+									</div>
+									<!-- Content -->
+									<div class="flex-1">
+										<h4 class="text-white font-bold text-xl mb-2">{contact.title}</h4>
+										<p class="text-white/90 font-medium whitespace-pre-line mb-2">{contact.subtitle}</p>
+										<p class="text-white/50 text-sm">{contact.description}</p>
+									</div>
+								</div>
 							</div>
-						</div>
-					))}
+						);
+					})}
 				</div>
-				<div class="glass p-8 rounded-2xl">
-					<form class="space-y-4">
-						<input type="text" placeholder="Your Name" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[#F8B92F]" />
-						<input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[#F8B92F]" />
-						<select class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-[#F8B92F]">
-							<option value="">Select Subject</option>
-							<option>Sponsorship Inquiry</option>
-							<option>Pageant Application</option>
-							<option>General Inquiry</option>
-							<option>Media Inquiry</option>
-						</select>
-						<textarea rows="4" placeholder="Your Message" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[#F8B92F]"></textarea>
-						<button type="submit" class="w-full px-6 py-4 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] text-black font-bold rounded-lg hover:shadow-2xl transition-all">
+
+				<!-- Contact Form -->
+				<div class="glass-dark p-10 rounded-3xl border border-[#F8B92F]/20">
+					<h3 class="text-heading text-3xl font-bold text-white mb-8">Send us a message</h3>
+					<form class="space-y-6">
+						<div>
+							<label class="block text-white/70 text-sm font-medium mb-2">Full Name</label>
+							<input
+								type="text"
+								placeholder="Enter your full name"
+								class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#F8B92F] focus:bg-white/10 transition-all duration-300"
+							/>
+						</div>
+						<div>
+							<label class="block text-white/70 text-sm font-medium mb-2">Email Address</label>
+							<input
+								type="email"
+								placeholder="your.email@example.com"
+								class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#F8B92F] focus:bg-white/10 transition-all duration-300"
+							/>
+						</div>
+						<div>
+							<label class="block text-white/70 text-sm font-medium mb-2">Subject</label>
+							<select class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-[#F8B92F] focus:bg-white/10 transition-all duration-300">
+								<option value="" class="bg-black">Select a subject</option>
+								<option class="bg-black">Sponsorship Inquiry</option>
+								<option class="bg-black">Pageant Application</option>
+								<option class="bg-black">General Inquiry</option>
+								<option class="bg-black">Media Inquiry</option>
+							</select>
+						</div>
+						<div>
+							<label class="block text-white/70 text-sm font-medium mb-2">Message</label>
+							<textarea
+								rows="5"
+								placeholder="Tell us more about your inquiry..."
+								class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-[#F8B92F] focus:bg-white/10 transition-all duration-300 resize-none"
+							></textarea>
+						</div>
+						<button
+							type="submit"
+							class="w-full px-8 py-5 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] text-black font-bold rounded-xl hover:shadow-2xl hover:shadow-[#F8B92F]/30 transition-all duration-300 text-lg hover:scale-[1.02]"
+						>
 							Send Message
 						</button>
 					</form>
@@ -228,21 +539,43 @@ import '../styles/global.css';
 		</div>
 	</section>
 
-	<!-- Footer -->
-	<footer class="relative py-12 bg-black border-t border-white/10">
+	<!-- Footer - Elegant Minimal Design -->
+	<footer class="relative py-16 border-t border-white/10" style="background: linear-gradient(180deg, #1a1a1a 0%, #252525 100%);">
+		<!-- Subtle Glow -->
+		<div class="absolute inset-0 opacity-20">
+			<div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-32 bg-[#F8B92F] rounded-full blur-[100px]"></div>
+		</div>
 		<div class="container mx-auto px-6">
-			<div class="flex flex-col items-center space-y-6">
-				<img src="/assets/images/logos/mdgh main logo mini.png" alt="MDGH" class="h-16 opacity-80" />
-				<p class="text-white/60 text-center">
+			<div class="flex flex-col items-center space-y-8">
+				<!-- Logo -->
+				<img src="/assets/images/logos/mdgh main logo mini.png" alt="MDGH" loading="lazy" decoding="async" class="h-20 opacity-90 hover:opacity-100 transition-opacity" />
+
+				<!-- Copyright -->
+				<p class="text-white/50 text-center text-sm leading-relaxed">
 					© 2025 Miss Diaspora Ghana (MDGH). All rights reserved.<br />
-					An initiative of Nubian Crown Company Limited.
+					An initiative of <span class="text-white/70 font-semibold">Nubian Crown Company Limited</span>.
 				</p>
-				<div class="flex space-x-8">
-					<a href="#home" class="text-white/60 hover:text-[#F8B92F] transition-colors">Home</a>
-					<a href="#about" class="text-white/60 hover:text-[#F8B92F] transition-colors">About</a>
-					<a href="#sponsorship" class="text-white/60 hover:text-[#F8B92F] transition-colors">Sponsorship</a>
-					<a href="#contact" class="text-white/60 hover:text-[#F8B92F] transition-colors">Contact</a>
+
+				<!-- Navigation Links -->
+				<div class="flex flex-wrap justify-center gap-8">
+					{[
+						{ label: 'Home', href: '#home' },
+						{ label: 'About', href: '#about' },
+						{ label: 'Programs', href: '#programs' },
+						{ label: 'Sponsorship', href: '#sponsorship' },
+						{ label: 'Contact', href: '#contact' }
+					].map((link) => (
+						<a
+							href={link.href}
+							class="text-white/60 hover:text-[#F8B92F] transition-colors duration-300 font-medium text-sm uppercase tracking-wider"
+						>
+							{link.label}
+						</a>
+					))}
 				</div>
+
+				<!-- Decorative Line -->
+				<div class="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#F8B92F]/30 to-transparent"></div>
 			</div>
 		</div>
 	</footer>
@@ -256,30 +589,70 @@ import '../styles/global.css';
 
 	gsap.registerPlugin(ScrollTrigger);
 
-	// Animate sections on scroll
-	gsap.utils.toArray('.pillar-card, .objective-card, .program-card, .tier-card').forEach((card: any) => {
-		gsap.from(card, {
-			scrollTrigger: {
-				trigger: card,
-				start: 'top bottom-=100',
-				toggleActions: 'play none none reverse'
-			},
-			y: 50,
-			opacity: 0,
-			duration: 0.8,
-			ease: 'power3.out'
+	// Premium scroll animations for all cards
+	const animateCards = (selector: string, delay: number = 0) => {
+		gsap.utils.toArray(selector).forEach((card: any, index: number) => {
+			gsap.from(card, {
+				scrollTrigger: {
+					trigger: card,
+					start: 'top bottom-=100',
+					toggleActions: 'play none none reverse'
+				},
+				y: 60,
+				opacity: 0,
+				duration: 1,
+				delay: delay + (index * 0.1),
+				ease: 'power3.out'
+			});
 		});
-	});
+	};
 
-	// Animate about section
+	// Animate all card sections
+	animateCards('.pillar-card');
+	animateCards('.objective-card');
+	animateCards('.program-card');
+	animateCards('.tier-card');
+
+	// Animate about image with parallax effect
 	gsap.from('.about-image', {
 		scrollTrigger: {
 			trigger: '.about-image',
-			start: 'top center+=100'
+			start: 'top center+=100',
+			end: 'bottom top',
+			scrub: 1
 		},
-		x: -100,
+		y: 100,
+		scale: 0.95,
 		opacity: 0,
-		duration: 1,
-		ease: 'power3.out'
+		ease: 'none'
+	});
+
+	// Animate section headers
+	gsap.utils.toArray('section').forEach((section: any) => {
+		const header = section.querySelector('.text-center');
+		if (header) {
+			gsap.from(header.children, {
+				scrollTrigger: {
+					trigger: header,
+					start: 'top center+=200'
+				},
+				y: 40,
+				opacity: 0,
+				stagger: 0.15,
+				duration: 1,
+				ease: 'power3.out'
+			});
+		}
+	});
+
+	// Floating animation for decorative elements
+	gsap.utils.toArray('.absolute.opacity-5, .absolute.opacity-10').forEach((el: any) => {
+		gsap.to(el, {
+			y: -30,
+			duration: 3 + Math.random() * 2,
+			repeat: -1,
+			yoyo: true,
+			ease: 'power1.inOut'
+		});
 	});
 </script>
