@@ -8,13 +8,7 @@ import react from '@astrojs/react';
 export default defineConfig({
   output: 'server',
   adapter: cloudflare({
-    mode: 'directory',
-    routes: {
-      extend: {
-        include: [{ pattern: '/*' }],
-        exclude: [{ pattern: '/_astro/*' }, { pattern: '/assets/*' }]
-      }
-    }
+    mode: 'advanced'
   }),
   integrations: [react()],
   vite: {
