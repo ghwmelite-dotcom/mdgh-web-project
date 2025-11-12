@@ -431,6 +431,58 @@ import '../styles/global.css';
 		</div>
 	</section>
 
+	<!-- Partners Section - Animated Logos -->
+	<section class="relative py-20 overflow-hidden" style="background: linear-gradient(180deg, #1f1f1f 0%, #1a1a1a 50%, #1f1f1f 100%);">
+		<!-- Subtle Background Effects -->
+		<div class="absolute inset-0">
+			<div class="absolute top-1/2 left-1/4 w-64 h-64 bg-[#F8B92F] rounded-full blur-[120px] opacity-10"></div>
+			<div class="absolute top-1/2 right-1/4 w-64 h-64 bg-[#FFD700] rounded-full blur-[120px] opacity-10"></div>
+		</div>
+
+		<div class="container mx-auto px-6 relative z-10">
+			<!-- Section Header -->
+			<div class="text-center mb-16">
+				<span class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold">
+					Trusted By
+				</span>
+				<h2 class="text-heading text-4xl lg:text-5xl text-white mt-4 mb-2">
+					Our <span class="gradient-text">Partners</span>
+				</h2>
+				<div class="w-24 h-1 bg-gradient-to-r from-transparent via-[#F8B92F] to-transparent mx-auto mt-6"></div>
+			</div>
+
+			<!-- Animated Partner Logos Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
+				{[
+					{ src: '/assets/images/partners/diaspora_logo.png', name: 'Diaspora Affairs', delay: 0 },
+					{ src: '/assets/images/partners/exim_logo.png', name: 'EXIM Bank', delay: 0.2 },
+					{ src: '/assets/images/partners/kes_logo.png', name: 'KES', delay: 0.4 }
+				].map((partner, index) => (
+					<div
+						class="partner-card group relative p-8 lg:p-10 glass-dark rounded-2xl border border-white/10 hover:border-[#F8B92F]/50 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+						data-delay={partner.delay}
+					>
+						<!-- Glow Effect on Hover -->
+						<div class="absolute inset-0 bg-gradient-to-br from-[#F8B92F]/0 to-[#FFD700]/0 group-hover:from-[#F8B92F]/10 group-hover:to-[#FFD700]/10 rounded-2xl transition-all duration-500"></div>
+
+						<!-- Logo Container -->
+						<div class="relative flex items-center justify-center h-32 lg:h-40">
+							<img
+								src={partner.src}
+								alt={partner.name}
+								loading="lazy"
+								class="max-w-full max-h-full w-auto h-auto object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-500 group-hover:scale-110"
+							/>
+						</div>
+
+						<!-- Decorative Border Bottom -->
+						<div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] group-hover:w-3/4 transition-all duration-500 rounded-full"></div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
 	<!-- Contact Section - Premium Elegant Design -->
 	<section id="contact" class="relative py-32 animated-gradient grid-pattern overflow-hidden">
 		<!-- Enhanced Ambient Lighting -->
@@ -610,6 +662,7 @@ import '../styles/global.css';
 	animateCards('.objective-card');
 	animateCards('.program-card');
 	animateCards('.tier-card');
+	animateCards('.partner-card', 0.2);
 
 	// Animate about image with parallax effect
 	gsap.from('.about-image', {
