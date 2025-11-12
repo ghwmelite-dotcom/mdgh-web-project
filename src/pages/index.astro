@@ -459,11 +459,12 @@ import '../styles/global.css';
 					{ src: '/assets/images/partners/kes_logo.png', name: 'KES', delay: 0.4 }
 				].map((partner, index) => (
 					<div
-						class="partner-card group relative p-8 lg:p-10 glass-dark rounded-2xl border border-white/10 hover:border-[#F8B92F]/50 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+						class="partner-card group relative p-8 lg:p-10 rounded-2xl border border-[#F8B92F]/20 hover:border-[#F8B92F]/60 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+						style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.98) 100%); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);"
 						data-delay={partner.delay}
 					>
 						<!-- Glow Effect on Hover -->
-						<div class="absolute inset-0 bg-gradient-to-br from-[#F8B92F]/0 to-[#FFD700]/0 group-hover:from-[#F8B92F]/10 group-hover:to-[#FFD700]/10 rounded-2xl transition-all duration-500"></div>
+						<div class="absolute inset-0 bg-gradient-to-br from-[#F8B92F]/0 to-[#FFD700]/0 group-hover:from-[#F8B92F]/15 group-hover:to-[#FFD700]/15 rounded-2xl transition-all duration-500"></div>
 
 						<!-- Logo Container -->
 						<div class="relative flex items-center justify-center h-32 lg:h-40">
@@ -471,7 +472,7 @@ import '../styles/global.css';
 								src={partner.src}
 								alt={partner.name}
 								loading="lazy"
-								class="max-w-full max-h-full w-auto h-auto object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-500 group-hover:scale-110"
+								class="max-w-full max-h-full w-auto h-auto object-contain filter drop-shadow-md group-hover:drop-shadow-xl transition-all duration-500 group-hover:scale-110"
 							/>
 						</div>
 
