@@ -26,7 +26,8 @@ import {
 	Check,
 	Instagram,
 	Facebook,
-	Music
+	Music,
+	X
 } from 'lucide-astro';
 import '../styles/global.css';
 ---
@@ -142,7 +143,7 @@ import '../styles/global.css';
 					<!-- Image Container -->
 					<div class="relative rounded-3xl overflow-hidden">
 						<img
-							src="/assets/images/content/a-medium-shot-of-a-confident-elegant-gha.jpg"
+							src="/assets/images/about_mdgh.jpg"
 							alt="Miss Diaspora Ghana"
 							loading="lazy"
 							decoding="async"
@@ -188,6 +189,21 @@ import '../styles/global.css';
 							<span class="text-[#F8B92F] text-sm uppercase tracking-wide font-bold">General Manager</span>
 							<p class="text-white font-semibold mt-3 text-lg">Yvonne Kofigah</p>
 						</div>
+					</div>
+
+					<!-- Meet General Manager Button -->
+					<div class="pt-8">
+						<button
+							id="openGMModal"
+							class="group magnetic relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] text-black font-bold text-base sm:text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-[#F8B92F]/50 transition-all duration-500 hover:scale-105"
+						>
+							<span class="relative z-10 flex items-center gap-3">
+								MEET THE GENERAL MANAGER
+								<User class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+							</span>
+							<!-- Animated shine effect -->
+							<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -645,6 +661,82 @@ import '../styles/global.css';
 	</footer>
 
 	<Chatbot />
+
+	<!-- General Manager Modal -->
+	<div id="gmModal" class="fixed inset-0 z-[100] hidden">
+		<!-- Backdrop -->
+		<div id="gmModalBackdrop" class="absolute inset-0 bg-black/90 backdrop-blur-sm"></div>
+
+		<!-- Modal Container -->
+		<div class="relative z-10 flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+			<div id="gmModalContent" class="relative w-full max-w-6xl bg-gradient-to-br from-[#1a1a1a] via-[#252525] to-[#1a1a1a] rounded-3xl overflow-hidden border-2 border-[#F8B92F]/30 shadow-2xl shadow-[#F8B92F]/20" style="max-height: 90vh;">
+				<!-- Close Button -->
+				<button id="closeGMModal" class="absolute top-4 right-4 sm:top-6 sm:right-6 z-20 p-3 rounded-full bg-black/50 hover:bg-[#F8B92F]/20 border border-white/10 hover:border-[#F8B92F] transition-all duration-300 group">
+					<X class="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-[#F8B92F] group-hover:rotate-90 transition-all duration-300" />
+				</button>
+
+				<!-- Modal Content -->
+				<div class="grid lg:grid-cols-2 gap-0 overflow-y-auto" style="max-height: 90vh;">
+					<!-- Image Section -->
+					<div class="relative h-[300px] sm:h-[400px] lg:h-auto lg:min-h-[600px]">
+						<img
+							src="/assets/images/yvonne_kofigah.jpg"
+							alt="Yvonne Kofigah - General Manager"
+							class="w-full h-full object-cover"
+						/>
+						<!-- Gradient Overlay -->
+						<div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#1a1a1a] via-transparent to-transparent"></div>
+
+						<!-- Name Badge - Mobile -->
+						<div class="absolute bottom-6 left-6 right-6 lg:hidden">
+							<div class="glass-dark p-6 rounded-2xl border border-[#F8B92F]/30">
+								<h3 class="text-heading text-3xl font-bold text-white mb-2">Yvonne Kofigah</h3>
+								<p class="text-[#F8B92F] font-semibold text-lg uppercase tracking-wide">General Manager</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Text Section -->
+					<div class="p-6 sm:p-8 lg:p-12 overflow-y-auto">
+						<!-- Name Badge - Desktop -->
+						<div class="hidden lg:block mb-8">
+							<div class="inline-block">
+								<span class="text-[#F8B92F] uppercase tracking-[0.3em] text-sm font-bold flex items-center gap-2">
+									<Star class="w-4 h-4" />
+									About the General Manager
+								</span>
+							</div>
+							<h3 class="text-heading text-5xl font-bold text-white mt-4 mb-2">Yvonne Kofigah</h3>
+							<p class="text-[#F8B92F] font-semibold text-xl uppercase tracking-wide">General Manager</p>
+						</div>
+
+						<!-- Biography -->
+						<div class="space-y-6 text-body-premium text-base sm:text-lg text-white/80 leading-relaxed">
+							<p>
+								Yvonne Kofigah, born in Accra, Ghana, has always been captivated by the world of pageantry. Her journey began in elementary school, where she participated in inter-class pageants that sparked her love for performance and cultural representation. This passion continued to flourish during her high school years, where she proudly contested in her house's pageant, further honing her skills and confidence.
+							</p>
+							<p>
+								In 2008, her dedication culminated in her participation in Miss Malika, one of Ghana's most prestigious beauty pageants, where she earned the title of 2nd runner-up. This achievement opened new doors for Yvonne, and in 2009, she was selected by the Ministry of Tourism to represent Ghana at the Miss Tourism Queen competition in China. This international platform allowed her to showcase the rich culture of Ghana through traditional drumming, dancing, and an array of cultural expressions.
+							</p>
+							<p>
+								Now residing in the United States as a wife and mother, Yvonne has successfully transitioned her career while maintaining her passion for pageantry. Recognizing the importance of cultural connection, she founded Miss Diaspora Ghana, a pageant dedicated not only to beauty but to celebrating Ghanaian culture among women in the diaspora. This initiative empowers participants to reconnect with their roots and learn about their heritage while adopting social projects aimed at benefiting local communities in Ghana.
+							</p>
+							<p>
+								Through Miss Diaspora Ghana, Yvonne Kofigah embodies the spirit of giving back to society, merging her love for pageantry with a commitment to cultural education and social responsibility. Her journey reflects the belief that <span class="text-[#F8B92F] font-semibold">once a queen, always a queen</span>, as she continues to inspire and uplift others through her work.
+							</p>
+						</div>
+
+						<!-- Decorative Element -->
+						<div class="mt-10 pt-8 border-t border-white/10">
+							<div class="flex items-center gap-4">
+								<div class="w-full h-px bg-gradient-to-r from-[#F8B92F] via-[#FFD700] to-transparent"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </Layout>
 
 <script>
@@ -719,5 +811,76 @@ import '../styles/global.css';
 			yoyo: true,
 			ease: 'power1.inOut'
 		});
+	});
+
+	// General Manager Modal Functionality
+	const gmModal = document.getElementById('gmModal');
+	const gmModalContent = document.getElementById('gmModalContent');
+	const gmModalBackdrop = document.getElementById('gmModalBackdrop');
+	const openGMModalBtn = document.getElementById('openGMModal');
+	const closeGMModalBtn = document.getElementById('closeGMModal');
+
+	// Set initial state
+	gsap.set(gmModalContent, { y: 100, opacity: 0, scale: 0.95 });
+	gsap.set(gmModalBackdrop, { opacity: 0 });
+
+	// Open Modal
+	function openGMModal() {
+		gmModal?.classList.remove('hidden');
+		document.body.style.overflow = 'hidden'; // Prevent body scroll
+
+		// Animate backdrop
+		gsap.to(gmModalBackdrop, {
+			opacity: 1,
+			duration: 0.3,
+			ease: 'power2.out'
+		});
+
+		// Animate modal with slide up + fade in
+		gsap.to(gmModalContent, {
+			y: 0,
+			opacity: 1,
+			scale: 1,
+			duration: 0.6,
+			ease: 'power3.out',
+			delay: 0.1
+		});
+	}
+
+	// Close Modal
+	function closeGMModal() {
+		// Animate modal out
+		gsap.to(gmModalContent, {
+			y: 50,
+			opacity: 0,
+			scale: 0.95,
+			duration: 0.4,
+			ease: 'power2.in'
+		});
+
+		// Animate backdrop
+		gsap.to(gmModalBackdrop, {
+			opacity: 0,
+			duration: 0.3,
+			ease: 'power2.in',
+			onComplete: () => {
+				gmModal?.classList.add('hidden');
+				document.body.style.overflow = ''; // Restore body scroll
+			}
+		});
+	}
+
+	// Event Listeners
+	openGMModalBtn?.addEventListener('click', openGMModal);
+	closeGMModalBtn?.addEventListener('click', closeGMModal);
+
+	// Close on backdrop click
+	gmModalBackdrop?.addEventListener('click', closeGMModal);
+
+	// Close on ESC key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && !gmModal?.classList.contains('hidden')) {
+			closeGMModal();
+		}
 	});
 </script>
