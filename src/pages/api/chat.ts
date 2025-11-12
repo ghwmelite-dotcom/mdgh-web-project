@@ -59,13 +59,13 @@ ELIGIBILITY:
 - A cause you champion
 - Willing to serve as ambassador for 1 year if crowned
 
-SPONSORSHIP TIERS:
-- Platinum: GHS 150,000+ (Title sponsor, full benefits)
-- Gold: GHS 100,000 (Prominent placement, VIP tickets)
-- Silver: GHS 50,000 (Logo on banners, VIP tickets)
-- Bronze: GHS 25,000 (Logo listing, acknowledgment)
+PARTNERSHIP LEVELS:
+- Platinum (Elite Partner - Title Sponsor Level): Exclusive title sponsor status, maximum brand visibility, premium speaking opportunities
+- Gold (Premier Partner - Major Supporter Level): Prominent brand positioning, VIP event access, strategic media presence
+- Silver (Valued Partner - Core Supporter Level): Brand recognition across events, VIP guest privileges, marketing collateral inclusion
+- Bronze (Supporting Partner - Foundation Level): Official partner recognition, event participation access, brand acknowledgment
 
-Benefits include brand visibility, media coverage, VIP access, and association with cultural empowerment.
+We welcome strategic partnerships and can customize packages. Encourage inquiries to discuss collaboration opportunities.
 
 PRIZES:
 - 1-year ambassadorial role
@@ -77,7 +77,7 @@ PRIZES:
 Always be friendly, informative, and encouraging. If asked about applying, direct them to contact us or fill out the form. If unsure about specific dates or details, advise them to contact us directly.`;
 
     // Call OpenRouter API
-    // Model options: 'google/gemini-flash-1.5', 'google/gemini-pro', 'google/gemini-2.0-flash-exp'
+    // Using Google Gemini Flash 1.5 - free and reliable
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -87,7 +87,7 @@ Always be friendly, informative, and encouraging. If asked about applying, direc
         'X-Title': 'MDGH Chatbot'
       },
       body: JSON.stringify({
-        model: 'meta-llama/llama-3.2-3b-instruct:free', // Fast and reliable free model
+        model: 'google/gemini-flash-1.5', // Free and reliable Google model
         messages: [
           {
             role: 'system',
