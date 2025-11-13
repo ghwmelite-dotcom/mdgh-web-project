@@ -2,7 +2,7 @@
 import { ArrowRight, ChevronDown } from 'lucide-astro';
 ---
 
-<section id="home" class="relative min-h-screen flex items-center overflow-hidden noise" style="min-height: 110vh; isolation: isolate;">
+<section id="home" class="relative min-h-screen flex items-center overflow-hidden noise" style="min-height: 100vh; isolation: isolate;">
   <!-- Video Background (Mobile: Full Background, Desktop: Left Half) -->
   <div class="absolute inset-0 lg:w-1/2 lg:left-0 overflow-hidden" style="max-height: 100vh;">
     <video
@@ -83,9 +83,9 @@ import { ArrowRight, ChevronDown } from 'lucide-astro';
   </div>
 
   <!-- Premium Scroll Indicator -->
-  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 lg:bottom-12 lg:left-auto lg:right-12 lg:translate-x-0 hero-scroll-indicator opacity-0">
+  <div class="absolute bottom-16 sm:bottom-20 left-1/2 transform -translate-x-1/2 lg:bottom-16 lg:left-auto lg:right-16 xl:right-20 lg:translate-x-0 hero-scroll-indicator opacity-0 z-20">
     <div class="flex flex-col lg:flex-row items-center gap-4 lg:rotate-90 lg:origin-center">
-      <span class="text-white/40 text-xs uppercase tracking-[0.3em] font-semibold">Scroll to explore</span>
+      <span class="text-white/40 text-xs uppercase tracking-[0.3em] font-semibold whitespace-nowrap">Scroll to explore</span>
       <div class="w-px h-16 lg:w-20 lg:h-px bg-gradient-to-b lg:bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
       <ChevronDown class="w-5 h-5 text-white/40 animate-bounce lg:hidden" />
     </div>
@@ -177,16 +177,16 @@ import { ArrowRight, ChevronDown } from 'lucide-astro';
 </script>
 
 <style>
-  /* Ensure hero takes full screen with extra space for stats */
+  /* Ensure hero takes full screen */
   #home {
-    min-height: 110vh;
-    min-height: 110dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 
   /* On mobile, ensure proper sizing and readability */
   @media (max-width: 640px) {
     #home {
-      min-height: 110vh;
+      min-height: 100vh;
     }
 
     /* Add strong text shadow on mobile for readability */
@@ -198,7 +198,7 @@ import { ArrowRight, ChevronDown } from 'lucide-astro';
   /* Tablet adjustments */
   @media (min-width: 641px) and (max-width: 1023px) {
     #home {
-      min-height: 110vh;
+      min-height: 100vh;
     }
 
     .hero-content * {
@@ -210,6 +210,15 @@ import { ArrowRight, ChevronDown } from 'lucide-astro';
   .hero-title span {
     display: block;
     will-change: transform;
+  }
+
+  /* Scroll indicator visibility */
+  .hero-scroll-indicator {
+    pointer-events: none;
+  }
+
+  .hero-scroll-indicator span {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
   }
 
   /* Premium button hover effect */
