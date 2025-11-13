@@ -65,6 +65,13 @@ import { ArrowRight, ChevronDown } from 'lucide-astro';
         <div class="absolute inset-0 bg-[#F8B92F]/5 blur-3xl -z-10"></div>
       </div>
 
+      <!-- Scroll Indicator - Inline -->
+      <div class="hero-scroll-indicator flex items-center gap-3 opacity-0 pt-2">
+        <ChevronDown class="w-4 h-4 text-[#F8B92F] animate-bounce" />
+        <span class="text-white/60 text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold">Scroll to explore</span>
+        <div class="flex-1 h-px bg-gradient-to-r from-[#F8B92F]/40 via-[#F8B92F]/20 to-transparent max-w-[100px]"></div>
+      </div>
+
       <!-- Premium CTA Button -->
       <div class="hero-cta opacity-0">
         <a
@@ -79,15 +86,6 @@ import { ArrowRight, ChevronDown } from 'lucide-astro';
           <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
         </a>
       </div>
-    </div>
-  </div>
-
-  <!-- Premium Scroll Indicator -->
-  <div class="absolute bottom-16 sm:bottom-20 left-1/2 transform -translate-x-1/2 lg:bottom-16 lg:left-auto lg:right-16 xl:right-20 lg:translate-x-0 hero-scroll-indicator opacity-0 z-20">
-    <div class="flex flex-col lg:flex-row items-center gap-4 lg:rotate-90 lg:origin-center">
-      <span class="text-white/40 text-xs uppercase tracking-[0.3em] font-semibold whitespace-nowrap">Scroll to explore</span>
-      <div class="w-px h-16 lg:w-20 lg:h-px bg-gradient-to-b lg:bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-      <ChevronDown class="w-5 h-5 text-white/40 animate-bounce lg:hidden" />
     </div>
   </div>
 </section>
@@ -131,19 +129,19 @@ import { ArrowRight, ChevronDown } from 'lucide-astro';
     duration: 0.6,
   }, '-=0.5')
 
+  // Scroll indicator - appears right after description
+  .to('.hero-scroll-indicator', {
+    opacity: 1,
+    x: 0,
+    duration: 0.8,
+  }, '-=0.2')
+
   // CTAs
   .to('.hero-cta', {
     opacity: 1,
     y: 0,
     duration: 1,
-  }, '-=0.4')
-
-  // Scroll indicator
-  .to('.hero-scroll-indicator', {
-    opacity: 1,
-    y: 0,
-    duration: 1,
-  }, '-=0.6');
+  }, '-=0.4');
 
   // Set initial states for animated elements
   gsap.set('.hero-line-1, .hero-line-2, .hero-line-3', {
@@ -152,9 +150,14 @@ import { ArrowRight, ChevronDown } from 'lucide-astro';
     rotateX: 90,
   });
 
-  gsap.set('.hero-cta, .hero-scroll-indicator', {
+  gsap.set('.hero-cta', {
     opacity: 0,
     y: 30,
+  });
+
+  gsap.set('.hero-scroll-indicator', {
+    opacity: 0,
+    x: -20,
   });
 
   // Continuous subtle float animation for title
