@@ -449,7 +449,7 @@ import '../styles/global.css';
 		</div>
 	</section>
 
-	<!-- Partners Section - Animated Logos -->
+	<!-- Partners Section - Scrolling Marquee Animation -->
 	<section class="relative py-20 overflow-hidden" style="background: linear-gradient(180deg, #1f1f1f 0%, #1a1a1a 50%, #1f1f1f 100%);">
 		<!-- Subtle Background Effects -->
 		<div class="absolute inset-0">
@@ -469,37 +469,99 @@ import '../styles/global.css';
 				<div class="w-24 h-1 bg-gradient-to-r from-transparent via-[#F8B92F] to-transparent mx-auto mt-6"></div>
 			</div>
 
-			<!-- Animated Partner Logos Grid -->
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
-				{[
-					{ src: '/assets/images/partners/diaspora_logo.png', name: 'Diaspora Affairs', delay: 0 },
-					{ src: '/assets/images/partners/exim_logo.png', name: 'EXIM Bank', delay: 0.2 },
-					{ src: 'https://i.postimg.cc/28wWkHHz/KES-logo.jpg', name: 'KES', delay: 0.4 }
-				].map((partner, index) => (
-					<div
-						class="partner-card group relative p-8 lg:p-10 rounded-2xl border border-[#F8B92F]/20 hover:border-[#F8B92F]/60 transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-						style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.98) 100%); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);"
-						data-delay={partner.delay}
-					>
-						<!-- Glow Effect on Hover -->
-						<div class="absolute inset-0 bg-gradient-to-br from-[#F8B92F]/0 to-[#FFD700]/0 group-hover:from-[#F8B92F]/15 group-hover:to-[#FFD700]/15 rounded-2xl transition-all duration-500"></div>
+			<!-- Scrolling Partner Logos Marquee -->
+			<div class="relative overflow-hidden max-w-6xl mx-auto">
+				<!-- Gradient Fade Edges -->
+				<div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#1a1a1a] to-transparent z-10 pointer-events-none"></div>
+				<div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#1a1a1a] to-transparent z-10 pointer-events-none"></div>
 
-						<!-- Logo Container -->
-						<div class="relative flex items-center justify-center h-32 lg:h-40">
-							<img
-								src={partner.src}
-								alt={partner.name}
-								loading="lazy"
-								class="max-w-full max-h-full w-auto h-auto object-contain filter drop-shadow-md group-hover:drop-shadow-xl transition-all duration-500 group-hover:scale-110"
-							/>
+				<div class="partner-marquee flex gap-8 lg:gap-16">
+					<!-- First set of logos -->
+					{[
+						{ src: '/assets/images/partners/diaspora_logo.png', name: 'Diaspora Affairs' },
+						{ src: '/assets/images/partners/exim_logo.png', name: 'EXIM Bank' },
+						{ src: 'https://i.postimg.cc/28wWkHHz/KES-logo.jpg', name: 'KES' },
+						{ src: '/assets/images/partners/gtdc_logo.jpg', name: 'GTDC' }
+					].map((partner) => (
+						<div
+							class="partner-card group relative flex-shrink-0 p-8 lg:p-10 rounded-2xl border border-[#F8B92F]/20 hover:border-[#F8B92F]/60 transition-all duration-500 hover:scale-105 w-64 lg:w-80"
+							style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.98) 100%); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);"
+						>
+							<!-- Glow Effect on Hover -->
+							<div class="absolute inset-0 bg-gradient-to-br from-[#F8B92F]/0 to-[#FFD700]/0 group-hover:from-[#F8B92F]/15 group-hover:to-[#FFD700]/15 rounded-2xl transition-all duration-500"></div>
+
+							<!-- Logo Container -->
+							<div class="relative flex items-center justify-center h-32 lg:h-40">
+								<img
+									src={partner.src}
+									alt={partner.name}
+									loading="lazy"
+									class="max-w-full max-h-full w-auto h-auto object-contain filter drop-shadow-md group-hover:drop-shadow-xl transition-all duration-500 group-hover:scale-110"
+								/>
+							</div>
+
+							<!-- Decorative Border Bottom -->
+							<div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] group-hover:w-3/4 transition-all duration-500 rounded-full"></div>
 						</div>
+					))}
 
-						<!-- Decorative Border Bottom -->
-						<div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] group-hover:w-3/4 transition-all duration-500 rounded-full"></div>
-					</div>
-				))}
+					<!-- Duplicate set for seamless loop -->
+					{[
+						{ src: '/assets/images/partners/diaspora_logo.png', name: 'Diaspora Affairs' },
+						{ src: '/assets/images/partners/exim_logo.png', name: 'EXIM Bank' },
+						{ src: 'https://i.postimg.cc/28wWkHHz/KES-logo.jpg', name: 'KES' },
+						{ src: '/assets/images/partners/gtdc_logo.jpg', name: 'GTDC' }
+					].map((partner) => (
+						<div
+							class="partner-card group relative flex-shrink-0 p-8 lg:p-10 rounded-2xl border border-[#F8B92F]/20 hover:border-[#F8B92F]/60 transition-all duration-500 hover:scale-105 w-64 lg:w-80"
+							style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 250, 250, 0.98) 100%); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);"
+							aria-hidden="true"
+						>
+							<!-- Glow Effect on Hover -->
+							<div class="absolute inset-0 bg-gradient-to-br from-[#F8B92F]/0 to-[#FFD700]/0 group-hover:from-[#F8B92F]/15 group-hover:to-[#FFD700]/15 rounded-2xl transition-all duration-500"></div>
+
+							<!-- Logo Container -->
+							<div class="relative flex items-center justify-center h-32 lg:h-40">
+								<img
+									src={partner.src}
+									alt={partner.name}
+									loading="lazy"
+									class="max-w-full max-h-full w-auto h-auto object-contain filter drop-shadow-md group-hover:drop-shadow-xl transition-all duration-500 group-hover:scale-110"
+								/>
+							</div>
+
+							<!-- Decorative Border Bottom -->
+							<div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-[#F8B92F] to-[#FFD700] group-hover:w-3/4 transition-all duration-500 rounded-full"></div>
+						</div>
+					))}
+				</div>
 			</div>
 		</div>
+
+		<style>
+			.partner-marquee {
+				animation: scrollLeftToRight 30s linear infinite;
+			}
+
+			.partner-marquee:hover {
+				animation-play-state: paused;
+			}
+
+			@keyframes scrollLeftToRight {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(50%);
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.partner-marquee {
+					animation: none;
+				}
+			}
+		</style>
 	</section>
 
 	<!-- Contact Section - Premium Elegant Design -->
